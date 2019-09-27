@@ -10,9 +10,13 @@ module Decidim
       isolate_namespace Decidim::UniqueIdentity
 
       routes do
-        # Add engine routes here
-        # resources :unique_identity
-        # root to: "unique_identity#index"
+        resource :authorizations, only: [:new, :create, :edit, :update], as: :authorization do
+          collection do
+            get :choose
+          end
+        end
+
+        root to: "authorizations#choose"
       end
 
       initializer "decidim_unique_identity.assets" do |app|

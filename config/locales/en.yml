@@ -1,6 +1,91 @@
 ---
 en:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Available methods
+      id: Id
+      id_document_upload:
+        verification_attachment: Scanned copy of your document
   decidim:
+    authorization_handlers:
+      admin:
+        unique_identity:
+          help:
+            - Users fill in their identity information and upload a copy of their document.
+            - You fill in the information present in the uploaded image.
+            - The information should match whatever the user filled in.
+            - If you can't clearly see the information or you can't get it verified, you can reject the request and the user will be able to fix it.
+      unique_identity:
+        explanation: explanation
+        name: Unique identity
     components:
       unique_identity:
         name: UniqueIdentity
+    unique_identity:
+      admin:
+        config:
+          edit:
+            title: Title
+            update: Update
+        confirmations:
+          new:
+            introduce_user_data: Introduce user data
+            reject: Reject
+            verify: Verify
+        offline_confirmations:
+          new:
+            cancel: Cancel
+            introduce_user_data: Introduce user data
+            verify: Verify
+        pending_authorizations:
+          index:
+            config: Config
+            offline_verification: Offline verification
+            title: Title
+            verification_number: Verification number
+      authorizations:
+        choose:
+          choose_a_type: Choose a type
+          offline: Offline
+          online: Online
+          title: Title
+        edit:
+          being_reviewed: Being reviewed
+          offline: Offline
+          online: Online
+          rejection_clarity: Rejection clarity
+          rejection_correctness: Rejection correctness
+          rejection_notice: Rejection notice
+          send: Send
+        new:
+          send: Send
+          title: Title
+    verifications:
+      id_documents:
+        admin:
+          config:
+            update:
+              error: Error
+              success: Success
+          confirmations:
+            create:
+              error: Verification doesn't match
+              success: Participant successfully verified
+          offline_confirmations:
+            create:
+              error: Verification doesn't match
+              success: Participant successfully verified
+          rejections:
+            create:
+              success: Verification rejected. Participant will be prompted to amend her documents
+        authorizations:
+          create:
+            error: There was a problem uploading your document
+            success: Document successfully uploaded
+          update:
+            error: There was a problem reuploading your document
+            success: Document successfully reuploaded
+  errors:
+    messages:
+      uppercase_only_letters_numbers: must be all uppercase and contain only letters and/or numbers

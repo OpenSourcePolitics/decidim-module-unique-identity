@@ -10,13 +10,15 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        # Add admin engine routes here
-        # resources :unique_identity do
-        #   collection do
-        #     resources :exports, only: [:create]
-        #   end
-        # end
-        # root to: "unique_identity#index"
+        resources :pending_authorizations, only: :index do
+          resource :confirmations, only: [:new, :create], as: :confirmation
+          resource :rejections, only: :create, as: :rejection
+        end
+        resource :offline_confirmations, only: [:new, :create], as: :offline_confirmation
+
+        resource :config, only: [:edit, :update], controller: "config"
+
+        root to: "pending_authorizations#index"
       end
 
       def load_seed

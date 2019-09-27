@@ -194,6 +194,7 @@ PATH
   remote: .
   specs:
     decidim-unique_identity (0.18.0)
+      decidim-admin (= 0.18.0)
       decidim-core (= 0.18.0)
 
 GEM
