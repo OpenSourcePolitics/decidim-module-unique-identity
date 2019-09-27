@@ -1,0 +1,6 @@
+---
+en:
+  decidim:
+    components:
+      unique_identity:
+        name: UniqueIdentity
