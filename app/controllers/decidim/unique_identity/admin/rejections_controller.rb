@@ -14,7 +14,7 @@ module Decidim
         def create
           enforce_permission_to :update, :authorization, authorization: @pending_authorization
 
-          @form = InformationRejectionForm.from_model(@pending_authorization)
+          @form = Decidim::UniqueIdentity::InformationRejectionForm.from_model(@pending_authorization)
 
           Decidim::Verifications::PerformAuthorizationStep.call(@pending_authorization, @form) do
             on(:ok) do

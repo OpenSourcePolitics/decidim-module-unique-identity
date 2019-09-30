@@ -5,10 +5,10 @@ require "spec_helper"
 describe "Identity document offline request", type: :system do
   let!(:organization) do
     create(
-      :organization,
-      available_authorizations: ["unique_identity"],
-      unique_identity_methods: [:offline],
-      unique_identity_explanation_text: { en: "This is my explanation text" }
+        :organization,
+        available_authorizations: ["unique_identity"],
+        unique_identity_methods: [:offline],
+        unique_identity_explanation_text: { en: "This is my explanation text" }
     )
   end
 
@@ -26,9 +26,14 @@ describe "Identity document offline request", type: :system do
   end
 
   it "allows the user fill in her identity document" do
+    fill_in "Last name", with: "El Foo"
+    fill_in "First name", with: "Bar"
+    fill_in "Birth date", with: "12/06/2003"
+    fill_in "Birth place", with: "Dummy"
+
     submit_upload_form(
-      doc_type: "DNI",
-      doc_number: "XXXXXXXX"
+        doc_type: "DNI",
+        doc_number: "XXXXXXXX",
     )
 
     expect(page).to have_content("Document successfully uploaded")

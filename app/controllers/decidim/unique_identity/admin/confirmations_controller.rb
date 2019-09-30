@@ -20,7 +20,7 @@ module Decidim
         def create
           enforce_permission_to :update, :authorization, authorization: @pending_authorization
 
-          @form = InformationForm.from_params(params)
+          @form = InformationForm.from_params(params.merge(user: @pending_authorization.user))
 
           Decidim::Verifications::ConfirmUserAuthorization.call(@pending_authorization, @form) do
             on(:ok) do

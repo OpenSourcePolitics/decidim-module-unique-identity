@@ -19,7 +19,11 @@ describe "Identity document online review", type: :system do
       verification_metadata: {
         "verification_type" => "online",
         "document_type" => "DNI",
-        "document_number" => "XXXXXXXX"
+        "document_number" => "XXXXXXXX",
+        "last_name" => "PETIT",
+        "first_name" => "JEAN",
+        "birth_date" => "02-08-1986",
+        "birth_place" => "MARSEILLE"
       },
       verification_attachment: Decidim::Dev.test_file("id.jpg", "image/jpg")
     )
@@ -35,6 +39,10 @@ describe "Identity document online review", type: :system do
   end
 
   it "allows the user to verify an identity document" do
+    fill_in "Last name", with: "Petit"
+    fill_in "First name", with: "Jean"
+    fill_in "Birth date", with: "02/08/1986"
+    fill_in "Birth place", with: "Marseille"
     submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXX")
 
     expect(page).to have_content("Participant successfully verified")
@@ -42,6 +50,10 @@ describe "Identity document online review", type: :system do
   end
 
   it "shows an error when information doesn't match" do
+    fill_in "Last name", with: "El Famoso"
+    fill_in "First name", with: "Armando"
+    fill_in "Birth date", with: "15/12/1998"
+    fill_in "Birth place", with: "Paris"
     submit_verification_form(doc_type: "NIE", doc_number: "XXXXXXXY")
 
     expect(page).to have_content("Verification doesn't match")
@@ -68,6 +80,10 @@ describe "Identity document online review", type: :system do
       end
 
       it "allows the verificator to review the amended request" do
+        fill_in "Last name", with: "El Famoso"
+        fill_in "First name", with: "Armando"
+        fill_in "Birth date", with: "15/12/1998"
+        fill_in "Birth place", with: "Paris"
         submit_reupload_form(
           doc_type: "DNI",
           doc_number: "XXXXXXXY",

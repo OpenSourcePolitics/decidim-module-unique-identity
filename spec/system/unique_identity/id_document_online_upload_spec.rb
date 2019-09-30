@@ -20,6 +20,10 @@ describe "Identity document online upload", type: :system do
   end
 
   it "allows the user to upload her identity document" do
+    fill_in "Last name", with: "El Foo"
+    fill_in "First name", with: "Bar"
+    fill_in "Birth date", with: "12/06/2003"
+    fill_in "Birth place", with: "Dummy"
     submit_upload_form(
       doc_type: "DNI",
       doc_number: "XXXXXXXX",
@@ -30,6 +34,10 @@ describe "Identity document online upload", type: :system do
   end
 
   it "shows an error when upload failed" do
+    fill_in "Last name", with: "El Foo"
+    fill_in "First name", with: "Bar"
+    fill_in "Birth date", with: "12/06/2003"
+    fill_in "Birth place", with: "Dummy"
     submit_upload_form(
       doc_type: "DNI",
       doc_number: "XXXXXXXX",

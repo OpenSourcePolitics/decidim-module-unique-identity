@@ -1,5 +1,21 @@
 <div class="card-section">
   <div class="field">
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :birth_place %>
+  </div>
+
+  <div class="field date">
+    <%= form.date_field :birth_date %>
+  </div>
+
+  <div class="field">
     <%= form.select :document_type, @form.document_types_for_select, prompt: true %>
   </div>
 

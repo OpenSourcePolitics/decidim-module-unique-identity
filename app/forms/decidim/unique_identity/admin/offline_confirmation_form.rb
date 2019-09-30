@@ -7,7 +7,15 @@ module Decidim
       class OfflineConfirmationForm < InformationForm
         attribute :email, String
 
-        validates :email, presence: true
+        def unique_id
+          super if user
+        end
+
+        def user
+          Decidim::User
+              .where(organization: current_organization)
+              .find_by(email: email)
+        end
       end
     end
   end
