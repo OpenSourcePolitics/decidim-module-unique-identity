@@ -9,7 +9,7 @@ describe Decidim::UniqueIdentity::Admin::ConfirmUserOfflineAuthorization do
     create(
       :authorization,
       :pending,
-      name: "id_documents",
+      name: "unique_identity",
       verification_metadata: verification_metadata
     )
   end
@@ -102,7 +102,7 @@ describe Decidim::UniqueIdentity::Admin::ConfirmUserOfflineAuthorization do
     it "traces the action", versioning: true do
       expect(Decidim.traceability)
         .to receive(:perform_action!)
-        .with(:grant_id_documents_offline_verification, user, admin)
+        .with(:grant_unique_identity_offline_verification, user, admin)
         .and_call_original
       expect { subject.call }.to change(Decidim::ActionLog, :count)
       action_log = Decidim::ActionLog.last

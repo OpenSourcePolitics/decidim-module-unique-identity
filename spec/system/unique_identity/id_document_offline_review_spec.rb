@@ -6,9 +6,9 @@ describe "Identity document offline review", type: :system do
   let!(:organization) do
     create(
       :organization,
-      available_authorizations: ["id_documents"],
-      id_documents_methods: ["offline"],
-      id_documents_explanation_text: { en: "Foobar" }
+      available_authorizations: ["unique_identity"],
+      unique_identity_methods: ["offline"],
+      unique_identity_explanation_text: { en: "Foobar" }
     )
   end
 
@@ -19,7 +19,7 @@ describe "Identity document offline review", type: :system do
       :authorization,
       :pending,
       id: 1,
-      name: "id_documents",
+      name: "unique_identity",
       user: user,
       verification_metadata: {
         "verification_type" => "offline",
@@ -34,7 +34,7 @@ describe "Identity document offline review", type: :system do
   before do
     switch_to_host(organization.host)
     login_as admin, scope: :user
-    visit decidim_admin_id_documents.root_path
+    visit decidim_admin_unique_identity.root_path
     click_link "Offline verification"
   end
 

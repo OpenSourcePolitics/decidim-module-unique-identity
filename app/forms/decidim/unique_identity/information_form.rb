@@ -4,7 +4,7 @@ module Decidim
   module UniqueIdentity
     # A form object to be used as the base for identity document verification
     class InformationForm < AuthorizationHandler
-      mimic :id_document_information
+      mimic :unique_identity_information
 
       DOCUMENT_TYPES = %w(DNI NIE passport).freeze
 
@@ -25,7 +25,7 @@ module Decidim
                 inclusion: { in: %w(offline online) }
 
       def handler_name
-        "id_documents"
+        "unique_identity"
       end
 
       def map_model(model)
@@ -45,7 +45,7 @@ module Decidim
       def document_types_for_select
         DOCUMENT_TYPES.map do |type|
           [
-              I18n.t(type.downcase, scope: "decidim.verifications.id_documents"),
+              I18n.t(type.downcase, scope: "decidim.verifications.unique_identity"),
               type
           ]
         end

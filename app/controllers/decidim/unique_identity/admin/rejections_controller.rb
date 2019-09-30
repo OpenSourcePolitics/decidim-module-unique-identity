@@ -18,7 +18,7 @@ module Decidim
 
           Decidim::Verifications::PerformAuthorizationStep.call(@pending_authorization, @form) do
             on(:ok) do
-              flash[:notice] = t("rejections.create.success", scope: "decidim.verifications.id_documents.admin")
+              flash[:notice] = t("rejections.create.success", scope: "decidim.verifications.unique_identity.admin")
               redirect_to root_path
             end
           end

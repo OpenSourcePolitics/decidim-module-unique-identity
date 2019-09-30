@@ -5,7 +5,7 @@ module Decidim
     # A form object to be used when public users want to get verified by
     # uploading their identity documents.
     class UploadForm < InformationForm
-      mimic :id_document_upload
+      mimic :unique_identity_upload
 
       attribute :verification_attachment, String
 

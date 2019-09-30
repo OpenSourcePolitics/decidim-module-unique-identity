@@ -20,14 +20,14 @@ module Decidim
 
           @form = form(OfflineConfirmationForm).from_params(params)
 
-          Decidim::Verifications::ConfirmUserOfflineAuthorization.call(@form) do
+          ConfirmUserOfflineAuthorization.call(@form) do
             on(:ok) do
-              flash[:notice] = t("offline_confirmations.create.success", scope: "decidim.verifications.id_documents.admin")
+              flash[:notice] = t("offline_confirmations.create.success", scope: "decidim.verifications.unique_identity.admin")
               redirect_to pending_authorizations_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = t("offline_confirmations.create.error", scope: "decidim.verifications.id_documents.admin")
+              flash.now[:alert] = t("offline_confirmations.create.error", scope: "decidim.verifications.unique_identity.admin")
               render action: :new
             end
           end

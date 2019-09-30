@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Admin lists authorizations", type: :system do
   let!(:organization) do
-    create(:organization, available_authorizations: ["id_documents"])
+    create(:organization, available_authorizations: ["unique_identity"])
   end
 
   let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
@@ -19,7 +19,7 @@ describe "Admin lists authorizations", type: :system do
 
   it "allows the user to list all available authorization methods" do
     within ".container" do
-      expect(page).to have_content("Identity documents")
+      expect(page).to have_content("Unique identity")
     end
   end
 end

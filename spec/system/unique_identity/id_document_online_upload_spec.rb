@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Identity document online upload", type: :system do
   let!(:organization) do
-    create(:organization, available_authorizations: ["id_documents"])
+    create(:organization, available_authorizations: ["unique_identity"])
   end
 
   let!(:user) { create(:user, :confirmed, organization: organization) }
@@ -12,7 +12,7 @@ describe "Identity document online upload", type: :system do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit decidim_id_documents.root_path
+    visit decidim_unique_identity.root_path
   end
 
   it "redirects to verification after login" do

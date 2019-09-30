@@ -19,7 +19,7 @@ module Decidim
         raise ActionController::RoutingError, "Method not available" unless available_methods.include?(verification_type)
         enforce_permission_to :create, :authorization, authorization: @authorization
 
-        @form = UploadForm.from_params(id_document_upload: { verification_type: verification_type })
+        @form = UploadForm.from_params(unique_identity_upload: { verification_type: verification_type })
       end
 
       def create
@@ -29,12 +29,12 @@ module Decidim
 
         Decidim::Verifications::PerformAuthorizationStep.call(@authorization, @form) do
           on(:ok) do
-            flash[:notice] = t("authorizations.create.success", scope: "decidim.verifications.id_documents")
+            flash[:notice] = t("authorizations.create.success", scope: "decidim.verifications.unique_identity")
             redirect_to decidim_verifications.authorizations_path
           end
 
           on(:invalid) do
-            flash[:alert] = t("authorizations.create.error", scope: "decidim.verifications.id_documents")
+            flash[:alert] = t("authorizations.create.error", scope: "decidim.verifications.unique_identity")
             render action: :new
           end
         end
@@ -53,18 +53,18 @@ module Decidim
             params.merge(
                 user: current_user,
                 verification_type: verification_type,
-                verification_attachment: params[:id_document_upload][:verification_attachment] || @authorization.verification_attachment
+                verification_attachment: params[:unique_identity_upload][:verification_attachment] || @authorization.verification_attachment
             )
         )
 
         Decidim::Verifications::PerformAuthorizationStep.call(@authorization, @form) do
           on(:ok) do
-            flash[:notice] = t("authorizations.update.success", scope: "decidim.verifications.id_documents")
+            flash[:notice] = t("authorizations.update.success", scope: "decidim.verifications.unique_identity")
             redirect_to decidim_verifications.authorizations_path
           end
 
           on(:invalid) do
-            flash[:alert] = t("authorizations.update.error", scope: "decidim.verifications.id_documents")
+            flash[:alert] = t("authorizations.update.error", scope: "decidim.verifications.unique_identity")
             render action: :edit
           end
         end
@@ -82,7 +82,7 @@ module Decidim
       def load_authorization
         @authorization = Decidim::Authorization.find_or_initialize_by(
             user: current_user,
-            name: "id_documents"
+            name: "unique_identity"
         )
       end
 
@@ -104,7 +104,7 @@ module Decidim
       end
 
       def available_methods
-        @available_methods ||= current_organization.id_documents_methods
+        @available_methods ||= current_organization.unique_identity_methods
       end
     end
   end

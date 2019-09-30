@@ -5,7 +5,13 @@ en:
       config:
         available_methods: Available methods
       id: Id
-      id_document_upload:
+      unique_identity_information:
+        document_number: Document number (with letter)
+        document_type: Type of the document
+      unique_identity_upload:
+        document_number: Document number (with letter)
+        document_type: Type of your document
+        user: Participant
         verification_attachment: Scanned copy of your document
   decidim:
     authorization_handlers:
@@ -30,20 +36,20 @@ en:
             update: Update
         confirmations:
           new:
-            introduce_user_data: Introduce user data
+            introduce_user_data: Introduce the data in the picture
             reject: Reject
             verify: Verify
         offline_confirmations:
           new:
             cancel: Cancel
-            introduce_user_data: Introduce user data
+            introduce_user_data: Introduce the participant email and the document data
             verify: Verify
         pending_authorizations:
           index:
             config: Config
             offline_verification: Offline verification
             title: Title
-            verification_number: Verification number
+            verification_number: 'Verification #%{n}'
       authorizations:
         choose:
           choose_a_type: Choose a type
@@ -51,18 +57,21 @@ en:
           online: Online
           title: Title
         edit:
-          being_reviewed: Being reviewed
-          offline: Offline
-          online: Online
-          rejection_clarity: Rejection clarity
-          rejection_correctness: Rejection correctness
-          rejection_notice: Rejection notice
-          send: Send
+          being_reviewed: We're reviewing your documents. You'll be verified shortly
+          offline: Use offline verification
+          online: Use online verification
+          rejection_clarity: Make sure the information is clearly visible in the uploaded image
+          rejection_correctness: Make sure the information entered is correct
+          rejection_notice: There was a problem with your verification. Please try again
+          send: Request verification again
         new:
-          send: Send
-          title: Title
+          send: Request verification
+          title: Upload your identity document
     verifications:
-      id_documents:
+      unique_identity:
+        dni: DNI
+        nie: NIE
+        passport: Passport
         admin:
           config:
             update:

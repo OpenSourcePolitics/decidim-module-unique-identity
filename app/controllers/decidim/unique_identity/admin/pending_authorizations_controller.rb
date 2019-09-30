@@ -18,7 +18,7 @@ module Decidim
 
         def pending_online_authorizations
           Decidim::Verifications::Authorizations
-              .new(organization: current_organization, name: "id_documents", granted: false)
+              .new(organization: current_organization, name: "unique_identity", granted: false)
               .query
               .where("verification_metadata->'rejected' IS NULL")
               .where("verification_metadata->>'verification_type' = 'online'")
@@ -29,7 +29,7 @@ module Decidim
         end
 
         def available_methods
-          @available_methods ||= current_organization.id_documents_methods
+          @available_methods ||= current_organization.unique_identity_methods
         end
       end
     end

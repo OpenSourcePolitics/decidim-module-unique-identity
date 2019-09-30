@@ -22,12 +22,12 @@ module Decidim
 
           UpdateConfig.call(@form) do
             on(:ok) do
-              flash[:notice] = t("config.update.success", scope: "decidim.verifications.id_documents.admin")
+              flash[:notice] = t("config.update.success", scope: "decidim.verifications.unique_identity.admin")
               redirect_to pending_authorizations_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = t("config.update.error", scope: "decidim.verifications.id_documents.admin")
+              flash.now[:alert] = t("config.update.error", scope: "decidim.verifications.unique_identity.admin")
               render action: :edit
             end
           end

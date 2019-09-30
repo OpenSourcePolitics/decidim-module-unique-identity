@@ -16,9 +16,9 @@ module Decidim
         validate :has_some_method_selected?
 
         def map_model(model)
-          self.online = model.id_documents_methods.include?("online")
-          self.offline = model.id_documents_methods.include?("offline")
-          self.offline_explanation = model.id_documents_explanation_text
+          self.online = model.unique_identity_methods.include?("online")
+          self.offline = model.unique_identity_methods.include?("offline")
+          self.offline_explanation = model.unique_identity_explanation_text
         end
 
         def has_some_method_selected?

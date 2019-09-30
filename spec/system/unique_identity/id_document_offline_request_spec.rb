@@ -6,9 +6,9 @@ describe "Identity document offline request", type: :system do
   let!(:organization) do
     create(
       :organization,
-      available_authorizations: ["id_documents"],
-      id_documents_methods: [:offline],
-      id_documents_explanation_text: { en: "This is my explanation text" }
+      available_authorizations: ["unique_identity"],
+      unique_identity_methods: [:offline],
+      unique_identity_explanation_text: { en: "This is my explanation text" }
     )
   end
 
@@ -17,7 +17,7 @@ describe "Identity document offline request", type: :system do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit decidim_id_documents.root_path
+    visit decidim_unique_identity.root_path
   end
 
   it "redirects to verification after login" do

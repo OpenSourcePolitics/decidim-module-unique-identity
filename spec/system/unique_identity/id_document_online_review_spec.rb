@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Identity document online review", type: :system do
   let!(:organization) do
-    create(:organization, available_authorizations: ["id_documents"])
+    create(:organization, available_authorizations: ["unique_identity"])
   end
 
   let(:user) { create(:user, :confirmed, organization: organization) }
@@ -14,7 +14,7 @@ describe "Identity document online review", type: :system do
       :authorization,
       :pending,
       id: 1,
-      name: "id_documents",
+      name: "unique_identity",
       user: user,
       verification_metadata: {
         "verification_type" => "online",
@@ -30,7 +30,7 @@ describe "Identity document online review", type: :system do
   before do
     switch_to_host(organization.host)
     login_as admin, scope: :user
-    visit decidim_admin_id_documents.root_path
+    visit decidim_admin_unique_identity.root_path
     click_link "Verification #1"
   end
 
@@ -60,7 +60,7 @@ describe "Identity document online review", type: :system do
       before do
         relogin_as user, scope: :user
         visit decidim_verifications.authorizations_path
-        click_link "Identity documents"
+        click_link "Unique identity"
       end
 
       it "allows the user to change the uploaded documents" do
@@ -76,7 +76,7 @@ describe "Identity document online review", type: :system do
         expect(page).to have_content("Document successfully reuploaded")
 
         relogin_as admin, scope: :user
-        visit decidim_admin_id_documents.root_path
+        visit decidim_admin_unique_identity.root_path
         click_link "Verification #1"
         expect(page).to have_css("img[src*='dni.jpg']")
         submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXY")

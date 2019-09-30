@@ -33,14 +33,14 @@ module Decidim::UniqueIdentity::Admin
       it "updates the organization" do
         subject.call
         organization.reload
-        expect(organization.id_documents_methods).to match_array(%w(online offline))
-        expect(translated(organization.id_documents_explanation_text)).to eq "Blah"
+        expect(organization.unique_identity_methods).to match_array(%w(online offline))
+        expect(translated(organization.unique_identity_explanation_text)).to eq "Blah"
       end
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with(:update_id_documents_config, organization, user)
+          .with(:update_unique_identity_config, organization, user)
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

@@ -44,7 +44,7 @@ module Decidim
 
         def grant_authorization
           Decidim.traceability.perform_action!(
-              :grant_id_documents_offline_verification,
+              :grant_unique_identity_offline_verification,
               authorization_user,
               form.current_user
           ) do
@@ -54,7 +54,7 @@ module Decidim
 
         def authorization
           @authorization ||= Decidim::Verifications::Authorizations
-                                 .new(organization: form.current_organization, name: "id_documents", granted: false)
+                                 .new(organization: form.current_organization, name: "unique_identity", granted: false)
                                  .query
                                  .where("verification_metadata->'rejected' IS NULL")
                                  .where("verification_metadata->>'verification_type' = 'offline'")

@@ -6,8 +6,8 @@ describe "Identity document request edition", type: :system do
   let(:organization) do
     create(
       :organization,
-      available_authorizations: ["id_documents"],
-      id_documents_methods: [:online]
+      available_authorizations: ["unique_identity"],
+      unique_identity_methods: [:online]
     )
   end
 
@@ -16,7 +16,7 @@ describe "Identity document request edition", type: :system do
     create(
       :authorization,
       :pending,
-      name: "id_documents",
+      name: "unique_identity",
       user: user,
       verification_metadata: {
         "verification_type" => verification_method,
@@ -33,7 +33,7 @@ describe "Identity document request edition", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_verifications.authorizations_path
-    click_link "Identity documents"
+    click_link "Unique identity"
   end
 
   context "when the organization only has online method active" do
@@ -56,9 +56,9 @@ describe "Identity document request edition", type: :system do
     let!(:organization) do
       create(
         :organization,
-        available_authorizations: ["id_documents"],
-        id_documents_methods: [:offline],
-        id_documents_explanation_text: { en: "This is my explanation text" }
+        available_authorizations: ["unique_identity"],
+        unique_identity_methods: [:offline],
+        unique_identity_explanation_text: { en: "This is my explanation text" }
       )
     end
     let(:verification_method) { :offline }
@@ -83,9 +83,9 @@ describe "Identity document request edition", type: :system do
     let!(:organization) do
       create(
         :organization,
-        available_authorizations: ["id_documents"],
-        id_documents_methods: [:offline, :online],
-        id_documents_explanation_text: { en: "This is my explanation text" }
+        available_authorizations: ["unique_identity"],
+        unique_identity_methods: [:offline, :online],
+        unique_identity_explanation_text: { en: "This is my explanation text" }
       )
     end
 
