@@ -80,10 +80,10 @@ describe "Identity document online review", type: :system do
       end
 
       it "allows the verificator to review the amended request" do
-        fill_in "Last name", with: "El Famoso"
-        fill_in "First name", with: "Armando"
-        fill_in "Birth date", with: "15/12/1998"
-        fill_in "Birth place", with: "Paris"
+        fill_in "Last name", with: "Petit"
+        fill_in "First name", with: "Jean"
+        fill_in "Birth date", with: "02/08/1986"
+        fill_in "Birth place", with: "Marseille"
         submit_reupload_form(
           doc_type: "DNI",
           doc_number: "XXXXXXXY",
@@ -95,6 +95,10 @@ describe "Identity document online review", type: :system do
         visit decidim_admin_unique_identity.root_path
         click_link "Verification #1"
         expect(page).to have_css("img[src*='dni.jpg']")
+        fill_in "Last name", with: "Petit"
+        fill_in "First name", with: "Jean"
+        fill_in "Birth date", with: "02/08/1986"
+        fill_in "Birth place", with: "Marseille"
         submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXY")
         expect(page).to have_content("Participant successfully verified")
       end
