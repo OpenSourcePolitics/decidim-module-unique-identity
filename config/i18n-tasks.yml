@@ -5,6 +5,17 @@ locales: [en]
 
 ignore_unused:
   - "decidim.components.unique_identity.name"
+  - "decidim.verifications.unique_identity.nie"
+  - "decidim.verifications.unique_identity.dni"
+  - "decidim.verifications.unique_identity.passport"
+  - "activemodel.attributes.unique_identity_upload.user"
+  - "activemodel.attributes.unique_identity_information.document_number"
+  - "activemodel.attributes.unique_identity_information.document_type"
+  - "activemodel.attributes.unique_identity_upload.document_number"
+  - "activemodel.attributes.unique_identity_upload.document_type"
+  - "decidim.authorization_handlers.admin.unique_identity.help"
+  - "decidim.authorization_handlers.unique_identity.explanation"
+  - "decidim.authorization_handlers.unique_identity.name"
 
 ignore_missing:
   - decidim.participatory_processes.scopes.global

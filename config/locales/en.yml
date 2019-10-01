@@ -68,11 +68,6 @@ en:
           rejection_notice: There was a problem with your verification. Please try
             again
           send: Request verification again
-        form:
-          date_select:
-            day: Day
-            month: Month
-            year: Year
         new:
           send: Request verification
           title: Upload your identity document
@@ -107,6 +102,6 @@ en:
         passport: Passport
   errors:
     messages:
+      date_format: 'must be on date format: dd/mm/yyyy'
       uppercase_only_letters_numbers: must be all uppercase and contain only letters
         and/or numbers
-      date_format: "must be on date format: dd/mm/yyyy"
