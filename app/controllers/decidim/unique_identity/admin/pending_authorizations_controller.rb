@@ -18,10 +18,10 @@ module Decidim
 
         def pending_online_authorizations
           Decidim::Verifications::Authorizations
-              .new(organization: current_organization, name: "unique_identity", granted: false)
-              .query
-              .where("verification_metadata->'rejected' IS NULL")
-              .where("verification_metadata->>'verification_type' = 'online'")
+            .new(organization: current_organization, name: "unique_identity", granted: false)
+            .query
+            .where("verification_metadata->'rejected' IS NULL")
+            .where("verification_metadata->>'verification_type' = 'online'")
         end
 
         def has_offline_method?

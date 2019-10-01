@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddUniqueIdentityFieldsToOrg < ActiveRecord::Migration[5.2]
   def change
     add_column :decidim_organizations, :unique_identity_methods, :string, array: true, default: ["online"]

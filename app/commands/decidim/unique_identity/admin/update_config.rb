@@ -22,9 +22,9 @@ module Decidim
 
         def update_config
           Decidim.traceability.perform_action!(
-              :update_unique_identity_config,
-              form.current_organization,
-              form.current_user
+            :update_unique_identity_config,
+            form.current_organization,
+            form.current_user
           ) do
             form.current_organization.unique_identity_methods = form.selected_methods
             form.current_organization.unique_identity_explanation_text = form.offline_explanation

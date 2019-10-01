@@ -5,10 +5,10 @@ require "spec_helper"
 describe "Identity document offline review", type: :system do
   let!(:organization) do
     create(
-        :organization,
-        available_authorizations: ["unique_identity"],
-        unique_identity_methods: ["offline"],
-        unique_identity_explanation_text: { en: "Foobar" }
+      :organization,
+      available_authorizations: ["unique_identity"],
+      unique_identity_methods: ["offline"],
+      unique_identity_explanation_text: { en: "Foobar" }
     )
   end
 
@@ -16,20 +16,20 @@ describe "Identity document offline review", type: :system do
 
   let!(:authorization) do
     create(
-        :authorization,
-        :pending,
-        id: 1,
-        name: "unique_identity",
-        user: user,
-        verification_metadata: {
-            "verification_type" => "offline",
-            "document_type" => "DNI",
-            "document_number" => "XXXXXXXX",
-            "last_name" => "EL FAMOSO",
-            "first_name" => "ARMANDO",
-            "birth_date" => "15-12-1998",
-            "birth_place" => "PARIS"
-        }
+      :authorization,
+      :pending,
+      id: 1,
+      name: "unique_identity",
+      user: user,
+      verification_metadata: {
+        "verification_type" => "offline",
+        "document_type" => "DNI",
+        "document_number" => "XXXXXXXX",
+        "last_name" => "EL FAMOSO",
+        "first_name" => "ARMANDO",
+        "birth_date" => "15-12-1998",
+        "birth_place" => "PARIS"
+      }
     )
   end
 

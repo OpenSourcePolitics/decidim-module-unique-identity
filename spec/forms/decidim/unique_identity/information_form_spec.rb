@@ -6,14 +6,14 @@ module Decidim::UniqueIdentity
   describe InformationForm do
     subject do
       described_class.new(
-          user: user,
-          verification_type: verification_type,
-          document_type: document_type,
-          document_number: document_number,
-          last_name: last_name,
-          first_name: first_name,
-          birth_date: birth_date,
-          birth_place: birth_place
+        user: user,
+        verification_type: verification_type,
+        document_type: document_type,
+        document_number: document_number,
+        last_name: last_name,
+        first_name: first_name,
+        birth_date: birth_date,
+        birth_place: birth_place
       )
     end
 
@@ -61,7 +61,7 @@ module Decidim::UniqueIdentity
       it "is not valid" do
         expect(subject).not_to be_valid
         expect(subject.errors[:document_number])
-            .to include("must be all uppercase and contain only letters and/or numbers")
+          .to include("must be all uppercase and contain only letters and/or numbers")
       end
     end
 
@@ -71,7 +71,7 @@ module Decidim::UniqueIdentity
       it "is not valid" do
         expect(subject).not_to be_valid
         expect(subject.errors[:birth_date])
-            .to include("must be on date format: dd/mm/yyyy")
+          .to include("must be on date format: dd/mm/yyyy")
       end
     end
   end

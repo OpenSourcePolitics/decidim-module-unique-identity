@@ -50,11 +50,11 @@ module Decidim
         enforce_permission_to :update, :authorization, authorization: @authorization
 
         @form = UploadForm.from_params(
-            params.merge(
-                user: current_user,
-                verification_type: verification_type,
-                verification_attachment: params[:unique_identity_upload][:verification_attachment] || @authorization.verification_attachment
-            )
+          params.merge(
+            user: current_user,
+            verification_type: verification_type,
+            verification_attachment: params[:unique_identity_upload][:verification_attachment] || @authorization.verification_attachment
+          )
         )
 
         Decidim::Verifications::PerformAuthorizationStep.call(@authorization, @form) do
@@ -81,8 +81,8 @@ module Decidim
 
       def load_authorization
         @authorization = Decidim::Authorization.find_or_initialize_by(
-            user: current_user,
-            name: "unique_identity"
+          user: current_user,
+          name: "unique_identity"
         )
       end
 

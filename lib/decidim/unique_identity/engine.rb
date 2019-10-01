@@ -20,7 +20,7 @@ module Decidim
       end
 
       initializer "decidim_unique_identity.assets" do |app|
-        app.config.assets.precompile += %w[decidim_unique_identity_manifest.js decidim_unique_identity_manifest.css]
+        app.config.assets.precompile += %w(decidim_unique_identity_manifest.js decidim_unique_identity_manifest.css)
       end
     end
   end

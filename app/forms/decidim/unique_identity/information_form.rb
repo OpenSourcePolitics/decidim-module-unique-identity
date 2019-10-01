@@ -39,7 +39,7 @@ module Decidim
       def unique_id
         return unless birth_date.is_a? Date
 
-        "#{last_name.gsub(" ", "-")}_#{first_name}_#{birth_date.strftime("%d-%m-%Y")}_#{birth_place.gsub(" ", "-")}".upcase
+        "#{last_name.tr(" ", "-")}_#{first_name}_#{birth_date.strftime("%d-%m-%Y")}_#{birth_place.tr(" ", "-")}".upcase
       end
 
       def map_model(model)
@@ -54,21 +54,21 @@ module Decidim
 
       def verification_metadata
         {
-            "document_type" => document_type,
-            "document_number" => document_number.upcase,
-            "verification_type" => verification_type,
-            "last_name" => last_name.upcase,
-            "first_name" => first_name.upcase,
-            "birth_date" => birth_date.strftime("%d-%m-%Y"),
-            "birth_place" => birth_place.upcase
+          "document_type" => document_type,
+          "document_number" => document_number.upcase,
+          "verification_type" => verification_type,
+          "last_name" => last_name.upcase,
+          "first_name" => first_name.upcase,
+          "birth_date" => birth_date.strftime("%d-%m-%Y"),
+          "birth_place" => birth_place.upcase
         }
       end
 
       def document_types_for_select
         DOCUMENT_TYPES.map do |type|
           [
-              I18n.t(type.downcase, scope: "decidim.verifications.unique_identity"),
-              type
+            I18n.t(type.downcase, scope: "decidim.verifications.unique_identity"),
+            type
           ]
         end
       end

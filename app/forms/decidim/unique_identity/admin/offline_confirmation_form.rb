@@ -13,8 +13,8 @@ module Decidim
 
         def user
           Decidim::User
-              .where(organization: current_organization)
-              .find_by(email: email)
+            .where(organization: current_organization)
+            .find_by(email: email)
         end
       end
     end

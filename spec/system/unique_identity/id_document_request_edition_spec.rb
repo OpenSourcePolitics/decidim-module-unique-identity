@@ -5,29 +5,29 @@ require "spec_helper"
 describe "Identity document request edition", type: :system do
   let(:organization) do
     create(
-        :organization,
-        available_authorizations: ["unique_identity"],
-        unique_identity_methods: [:online]
+      :organization,
+      available_authorizations: ["unique_identity"],
+      unique_identity_methods: [:online]
     )
   end
 
   let(:verification_method) { :online }
   let!(:authorization) do
     create(
-        :authorization,
-        :pending,
-        name: "unique_identity",
-        user: user,
-        verification_metadata: {
-            "verification_type" => verification_method,
-            "document_type" => "DNI",
-            "document_number" => "XXXXXXXX",
-            "last_name" => "El Foo",
-            "first_name" => "Bar",
-            "birth_date" => "12/04/1994",
-            "birth_place" => "Dummy"
-        },
-        verification_attachment: Decidim::Dev.test_file("id.jpg", "image/jpg")
+      :authorization,
+      :pending,
+      name: "unique_identity",
+      user: user,
+      verification_metadata: {
+        "verification_type" => verification_method,
+        "document_type" => "DNI",
+        "document_number" => "XXXXXXXX",
+        "last_name" => "El Foo",
+        "first_name" => "Bar",
+        "birth_date" => "12/04/1994",
+        "birth_place" => "Dummy"
+      },
+      verification_attachment: Decidim::Dev.test_file("id.jpg", "image/jpg")
     )
   end
 
@@ -45,9 +45,9 @@ describe "Identity document request edition", type: :system do
       expect(page).to have_selector("form", text: "Request verification again")
 
       submit_upload_form(
-          doc_type: "DNI",
-          doc_number: "XXXXXXXY",
-          file_name: "dni.jpg"
+        doc_type: "DNI",
+        doc_number: "XXXXXXXY",
+        file_name: "dni.jpg"
       )
       expect(page).to have_content("Document successfully reuploaded")
       authorization.reload
@@ -59,10 +59,10 @@ describe "Identity document request edition", type: :system do
   context "when the organization only has offline method active" do
     let!(:organization) do
       create(
-          :organization,
-          available_authorizations: ["unique_identity"],
-          unique_identity_methods: [:offline],
-          unique_identity_explanation_text: { en: "This is my explanation text" }
+        :organization,
+        available_authorizations: ["unique_identity"],
+        unique_identity_methods: [:offline],
+        unique_identity_explanation_text: { en: "This is my explanation text" }
       )
     end
     let(:verification_method) { :offline }
@@ -73,8 +73,8 @@ describe "Identity document request edition", type: :system do
       expect(page).to have_content("This is my explanation text")
 
       submit_upload_form(
-          doc_type: "DNI",
-          doc_number: "XXXXXXXY"
+        doc_type: "DNI",
+        doc_number: "XXXXXXXY"
       )
       expect(page).to have_content("Document successfully reuploaded")
       authorization.reload
@@ -86,10 +86,10 @@ describe "Identity document request edition", type: :system do
   context "when the organization has both online and offline methods active" do
     let!(:organization) do
       create(
-          :organization,
-          available_authorizations: ["unique_identity"],
-          unique_identity_methods: [:offline, :online],
-          unique_identity_explanation_text: { en: "This is my explanation text" }
+        :organization,
+        available_authorizations: ["unique_identity"],
+        unique_identity_methods: [:offline, :online],
+        unique_identity_explanation_text: { en: "This is my explanation text" }
       )
     end
 
@@ -102,9 +102,9 @@ describe "Identity document request edition", type: :system do
         click_link "Use online verification"
 
         submit_upload_form(
-            doc_type: "DNI",
-            doc_number: "XXXXXXXY",
-            file_name: "dni.jpg"
+          doc_type: "DNI",
+          doc_number: "XXXXXXXY",
+          file_name: "dni.jpg"
         )
 
         expect(page).to have_content("Document successfully reuploaded")
@@ -124,8 +124,8 @@ describe "Identity document request edition", type: :system do
         expect(page).not_to have_content("Scanned copy of your document")
 
         submit_upload_form(
-            doc_type: "DNI",
-            doc_number: "XXXXXXXY"
+          doc_type: "DNI",
+          doc_number: "XXXXXXXY"
         )
 
         expect(page).to have_content("Document successfully reuploaded")
