@@ -63,11 +63,6 @@ fr:
           rejection_correctness: Assurez-vous que les informations entrées sont correctes
           rejection_notice: Il y a eu un problème avec votre vérification. Veuillez essayer à nouveau
           send: Renouveler la demande de vérification
-        form:
-          date_select:
-            day: Jour
-            month: Mois
-            year: Année
         new:
           send: Demande de vérification
           title: Importez votre document d'identité
@@ -101,5 +96,5 @@ fr:
         passport: Passport
   errors:
     messages:
+      date_format: 'must be on date format: dd/mm/yyyy'
       uppercase_only_letters_numbers: must be all uppercase and contain only letters and/or numbers
-      date_format: "must be on date format: dd/mm/yyyy"
