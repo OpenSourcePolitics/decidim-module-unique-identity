@@ -1,18 +1,21 @@
 # Decidim::UniqueIdentity
 
+[![CircleCI](https://circleci.com/gh/OpenSourcePolitics/decidim-module-unique-identity/tree/master.svg?style=svg)](https://circleci.com/gh/OpenSourcePolitics/decidim-module-unique-identity/tree/master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2541defe5f62729ac05e/maintainability)](https://codeclimate.com/github/OpenSourcePolitics/decidim-module-unique-identity/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/2541defe5f62729ac05e/test_coverage)](https://codeclimate.com/github/OpenSourcePolitics/decidim-module-unique-identity/test_coverage)
+
 Unique identity authorization handler.
 
 ## Usage
 
-UniqueIdentity will be available as a Component for a Participatory
-Space.
+UniqueIdentity authorization handler
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'decidim-unique_identity
+gem 'decidim-unique_identity'
 ```
 
 And then execute:
