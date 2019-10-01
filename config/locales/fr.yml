@@ -2,93 +2,93 @@ fr:
   activemodel:
     attributes:
       config:
-        available_methods: Available methods
+        available_methods: Méthodes disponibles
       id: Id
       unique_identity_information:
-        document_number: Document number (with letter)
-        document_type: Type of the document
+        document_number: Numéro de document (avec lettre)
+        document_type: Type de document
       unique_identity_upload:
-        document_number: Document number (with letter)
-        document_type: Type of your document
-        user: Participant
-        verification_attachment: Scanned copy of your document
+        document_number: Numéro de document (avec lettre)
+        document_type: Type de votre document
+        user: Utilisateur
+        verification_attachment: Copie scannée du document
   decidim:
     authorization_handlers:
       admin:
         unique_identity:
           help:
-            - Users fill in their identity information and upload a copy of their document.
-            - You fill in the information present in the uploaded image.
-            - The information should match whatever the user filled in.
-            - If you can't clearly see the information or you can't get it verified, you can reject the request and the user will be able to fix it.
+            - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
+            - Vous remplissez les informations présentes dans l'image téléchargée.
+            - L'information doit correspondre à tout ce que l'utilisateur a rempli.
+            - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez refuser la demande et l'utilisateur sera en mesure de les corriger.
       unique_identity:
-        explanation: explanation
-        name: Unique identity
+        explanation: explication
+        name: Identité unique
     components:
       unique_identity:
-        name: UniqueIdentity
+        name: Identité unique
     unique_identity:
       admin:
         config:
           edit:
-            title: Title
-            update: Update
+            title: Titre
+            update: Mettre à jour
         confirmations:
           new:
-            introduce_user_data: Introduce the data in the picture
-            reject: Reject
-            verify: Verify
+            introduce_user_data: Introduire les données dans l'image
+            reject: Rejeter
+            verify: Vérifier
         offline_confirmations:
           new:
-            cancel: Cancel
-            introduce_user_data: Introduce the participant email and the document data
-            verify: Verify
+            cancel: Annuler
+            introduce_user_data: Introduire le courrier électronique de l'utilisateur et les données du document
+            verify: Vérifier
         pending_authorizations:
           index:
-            config: Config
-            offline_verification: Offline verification
-            title: Title
-            verification_number: 'Verification #%{n}'
+            config: Configuration
+            offline_verification: Vérification hors ligne
+            title: Titre
+            verification_number: 'Vérification #%{n}'
       authorizations:
         choose:
-          choose_a_type: Choose a type
-          offline: Offline
-          online: Online
-          title: Title
+          choose_a_type: Choisissez un type
+          offline: Hors ligne
+          online: En ligne
+          title: Titre
         edit:
-          being_reviewed: We're reviewing your documents. You'll be verified shortly
-          offline: Use offline verification
-          online: Use online verification
-          rejection_clarity: Make sure the information is clearly visible in the uploaded image
-          rejection_correctness: Make sure the information entered is correct
-          rejection_notice: There was a problem with your verification. Please try again
-          send: Request verification again
+          being_reviewed: Nous examinons vos documents et votre autorisation sera bientôt validée
+          offline: Utiliser la vérification hors ligne
+          online: Utiliser la vérification en ligne
+          rejection_clarity: Assurez-vous que les informations sont clairement visibles dans l'image téléchargée
+          rejection_correctness: Assurez-vous que les informations entrées sont correctes
+          rejection_notice: Il y a eu un problème avec votre vérification. Veuillez essayer à nouveau
+          send: Renouveler la demande de vérification
         form:
           date_select:
-            day: Day
-            month: Month
-            year: Year
+            day: Jour
+            month: Mois
+            year: Année
         new:
-          send: Request verification
-          title: Upload your identity document
+          send: Demande de vérification
+          title: Importez votre document d'identité
     verifications:
       unique_identity:
         admin:
           config:
             update:
-              error: Error
-              success: Success
+              error: Erreur
+              success: Succès
           confirmations:
             create:
-              error: Verification doesn't match
-              success: Participant successfully verified
+              error: La vérification ne correspond pas
+              success: Utilisateur vérifié avec succès
           offline_confirmations:
             create:
-              error: Verification doesn't match
-              success: Participant successfully verified
+              error: La vérification ne correspond pas
+              success: Utilisateur vérifié avec succès
           rejections:
             create:
-              success: Verification rejected. Participant will be prompted to amend her documents
+              success: Vérification rejetée. L'utilisateur sera invité à modifier ses documents
         authorizations:
           create:
             error: There was a problem uploading your document
