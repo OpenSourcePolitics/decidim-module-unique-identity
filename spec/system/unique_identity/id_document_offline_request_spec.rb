@@ -33,7 +33,9 @@ describe "Identity document offline request", type: :system do
 
     submit_upload_form(
       doc_type: "DNI",
-      doc_number: "XXXXXXXX"
+      doc_number: "XXXXXXXX",
+      residence_doc_type: "Energy bill",
+      city_resident: true
     )
 
     expect(page).to have_content("Document successfully uploaded")
@@ -41,9 +43,11 @@ describe "Identity document offline request", type: :system do
 
   private
 
-  def submit_upload_form(doc_type:, doc_number:)
+  def submit_upload_form(doc_type:, doc_number:, residence_doc_type:, city_resident:)
     select doc_type, from: "Type of your document"
     fill_in "Document number (with letter)", with: doc_number
+    select residence_doc_type, from: "Residence document type"
+    check "City resident" if city_resident
 
     click_button "Request verification"
   end

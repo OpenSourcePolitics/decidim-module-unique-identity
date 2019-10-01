@@ -23,6 +23,14 @@
     <%= form.text_field :document_number %>
   </div>
 
+  <div class="field">
+    <%= form.select :residence_document_type, @form.residence_document_types_for_select, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= form.check_box :city_resident %>
+  </div>
+
   <% if using_online? %>
     <div class="field">
       <%= form.upload :verification_attachment %>

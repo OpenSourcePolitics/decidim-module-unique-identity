@@ -7,6 +7,7 @@ module Decidim
       mimic :unique_identity_information
 
       DOCUMENT_TYPES = %w(DNI NIE passport).freeze
+      RESIDENCE_DOCUMENT_TYPES = %w(fix_phone_bill internet_bill energy_bill).freeze
 
       attribute :last_name, String
       attribute :first_name, String
@@ -14,14 +15,22 @@ module Decidim
       attribute :birth_place, String
       attribute :document_number, String
       attribute :document_type, String
+      attribute :residence_document_type, String
       attribute :verification_type, String
+      attribute :city_resident, Boolean
 
       validates :last_name, :first_name, :birth_date, :birth_place, presence: true
+
+      validates :city_resident, acceptance: true
 
       validate :birth_date_is_of_date_type
 
       validates :document_type,
                 inclusion: { in: DOCUMENT_TYPES },
+                presence: true
+
+      validates :residence_document_type,
+                inclusion: { in: RESIDENCE_DOCUMENT_TYPES },
                 presence: true
 
       validates :document_number,
@@ -44,7 +53,9 @@ module Decidim
 
       def map_model(model)
         self.document_type = model.verification_metadata["document_type"]
+        self.residence_document_type = model.verification_metadata["residence_document_type"]
         self.document_number = model.verification_metadata["document_number"]
+        self.city_resident = model.verification_metadata["city_resident"]
         self.verification_type = model.verification_metadata["verification_type"].presence || "online"
         self.last_name = model.verification_metadata["last_name"]
         self.first_name = model.verification_metadata["first_name"]
@@ -55,7 +66,9 @@ module Decidim
       def verification_metadata
         {
           "document_type" => document_type,
+          "residence_document_type" => residence_document_type,
           "document_number" => document_number.upcase,
+          "city_resident" => city_resident,
           "verification_type" => verification_type,
           "last_name" => last_name.upcase,
           "first_name" => first_name.upcase,
@@ -67,7 +80,16 @@ module Decidim
       def document_types_for_select
         DOCUMENT_TYPES.map do |type|
           [
-            I18n.t(type.downcase, scope: "decidim.verifications.unique_identity"),
+            I18n.t(type.downcase, scope: "decidim.verifications.unique_identity.type"),
+            type
+          ]
+        end
+      end
+
+      def residence_document_types_for_select
+        RESIDENCE_DOCUMENT_TYPES.map do |type|
+          [
+            I18n.t(type.downcase, scope: "decidim.verifications.unique_identity.type"),
             type
           ]
         end

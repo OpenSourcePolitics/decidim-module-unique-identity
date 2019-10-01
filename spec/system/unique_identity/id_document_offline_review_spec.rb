@@ -28,7 +28,9 @@ describe "Identity document offline review", type: :system do
         "last_name" => "EL FAMOSO",
         "first_name" => "ARMANDO",
         "birth_date" => "15-12-1998",
-        "birth_place" => "PARIS"
+        "birth_place" => "PARIS",
+        "residence_document_type" => "energy_bill",
+        "city_resident" => true
       }
     )
   end
@@ -47,7 +49,12 @@ describe "Identity document offline review", type: :system do
     fill_in "First name", with: "Armando"
     fill_in "Birth date", with: "15/12/1998"
     fill_in "Birth place", with: "Paris"
-    submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXX")
+    submit_verification_form(
+      doc_type: "DNI",
+      doc_number: "XXXXXXXX",
+      residence_doc_type: "Energy bill",
+      city_resident: true
+    )
 
     expect(page).to have_content("Participant successfully verified")
   end
@@ -57,7 +64,13 @@ describe "Identity document offline review", type: :system do
     fill_in "First name", with: "Bar"
     fill_in "Birth date", with: "12/06/2003"
     fill_in "Birth place", with: "Dummy"
-    submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXX", user_email: "this@doesnt.exist")
+    submit_verification_form(
+      doc_type: "DNI",
+      doc_number: "XXXXXXXX",
+      residence_doc_type: "Energy bill",
+      city_resident: true,
+      user_email: "this@doesnt.exist"
+    )
 
     expect(page).to have_content("Verification doesn't match")
     expect(page).to have_content("INTRODUCE THE PARTICIPANT EMAIL AND THE DOCUMENT DATA")
@@ -68,7 +81,12 @@ describe "Identity document offline review", type: :system do
     fill_in "First name", with: "Bar"
     fill_in "Birth date", with: "12/06/2003"
     fill_in "Birth place", with: "Dummy"
-    submit_verification_form(doc_type: "NIE", doc_number: "XXXXXXXY")
+    submit_verification_form(
+      doc_type: "NIE",
+      doc_number: "XXXXXXXY",
+      residence_doc_type: "Energy bill",
+      city_resident: true
+    )
 
     expect(page).to have_content("Verification doesn't match")
     expect(page).to have_content("INTRODUCE THE PARTICIPANT EMAIL AND THE DOCUMENT DATA")
@@ -76,10 +94,12 @@ describe "Identity document offline review", type: :system do
 
   private
 
-  def submit_verification_form(doc_type:, doc_number:, user_email: user.email)
+  def submit_verification_form(doc_type:, doc_number:, residence_doc_type:, city_resident:, user_email: user.email)
     fill_in "Participant email", with: user_email
     select doc_type, from: "Type of the document"
     fill_in "Document number (with letter)", with: doc_number
+    select residence_doc_type, from: "Residence document type"
+    check "City resident" if city_resident
 
     click_button "Verify"
   end

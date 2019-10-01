@@ -20,6 +20,8 @@
         <%= form.date_field :birth_date %>
         <%= form.select :document_type, @form.document_types_for_select, prompt: true, selected: nil %>
         <%= form.text_field :document_number, value: nil %>
+        <%= form.select :residence_document_type, @form.residence_document_types_for_select, prompt: true %>
+        <%= form.check_box :city_resident %>
         <%= form.hidden_field :verification_type, value: :online %>
       </div>
     </div>

@@ -97,9 +97,13 @@ en:
           update:
             error: There was a problem reuploading your document
             success: Document successfully reuploaded
-        dni: DNI
-        nie: NIE
-        passport: Passport
+        type:
+          dni: DNI
+          nie: NIE
+          passport: Passport
+          energy_bill: Energy bill
+          fix_phone_bill: Fix phone bill
+          internet_bill: Internet bill
   errors:
     messages:
       date_format: 'must be on date format: dd/mm/yyyy'

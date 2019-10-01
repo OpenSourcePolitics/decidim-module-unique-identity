@@ -13,7 +13,9 @@ module Decidim::UniqueIdentity
         last_name: last_name,
         first_name: first_name,
         birth_date: birth_date,
-        birth_place: birth_place
+        birth_place: birth_place,
+        residence_document_type: residence_document_type,
+        city_resident: city_resident
       )
     end
 
@@ -26,6 +28,8 @@ module Decidim::UniqueIdentity
     let(:verification_type) { "online" }
     let(:document_type) { "DNI" }
     let(:document_number) { "XXXXXXXXY" }
+    let(:residence_document_type) { "energy_bill" }
+    let(:city_resident) { true }
 
     context "when the information is valid" do
       it "is valid" do
@@ -62,6 +66,23 @@ module Decidim::UniqueIdentity
         expect(subject).not_to be_valid
         expect(subject.errors[:document_number])
           .to include("must be all uppercase and contain only letters and/or numbers")
+      end
+    end
+
+    context "when the residence document type is invalid" do
+      let(:residence_document_type) { "mobile_phone_bill" }
+
+      it "is not valid" do
+        expect(subject).not_to be_valid
+        expect(subject.errors[:residence_document_type]).to include("is not included in the list")
+      end
+    end
+
+    context "when city resident is not true" do
+      let(:city_resident) { false }
+
+      it "is not valid" do
+        expect(subject).not_to be_valid
       end
     end
 
