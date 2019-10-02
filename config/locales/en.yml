@@ -99,11 +99,11 @@ en:
             success: Document successfully reuploaded
         type:
           dni: DNI
-          nie: NIE
-          passport: Passport
           energy_bill: Energy bill
           fix_phone_bill: Fix phone bill
           internet_bill: Internet bill
+          nie: NIE
+          passport: Passport
   errors:
     messages:
       date_format: 'must be on date format: dd/mm/yyyy'
