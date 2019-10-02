@@ -70,12 +70,12 @@ en:
           rejection_notice: There was a problem with your verification. Please try again
           send: Request verification again
         form:
-          document_scan: Document Scanning
+          document_scan: Document scan
           document_scan_help:
             description: Description
             explanation: Explanation
             guidelines: Guidelines
-            title: Documents Help
+            title: Document scan help
           documents_information: Document information
           personal_information: Personal information
         new:
