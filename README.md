@@ -25,6 +25,29 @@ And then execute:
 bundle
 ```
 
+Apply migration:
+```bash 
+bundle exec rake decidim_unique_identity:install:migrations
+bundle exec rake db:migrate
+```
+
+## Removing
+To remove this authorization handler
+
+Remove this line from Gemile:
+
+```ruby
+gem 'decidim-unique_identity'
+```
+
+And then execute:
+
+```bash
+bundle
+bundle exec rake db:migrate SCOPE=decidim_unique_identity VERSION=0
+```
+You can then safely remove the file `add_unique_identity_fields_to_org.rb` from your `db/migrate` folder.
+
 ## Contributing
 
 See [Decidim](https://github.com/decidim/decidim).
