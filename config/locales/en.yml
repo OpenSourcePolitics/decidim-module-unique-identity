@@ -75,7 +75,6 @@ en:
             again
           send: Request verification again
         form:
-          document_information: Document information
           document_scan: Document scan
           document_scan_help:
             bad: Bad
@@ -128,9 +127,15 @@ en:
       uppercase_only_letters_numbers: must be all uppercase and contain only letters
         and/or numbers
   placeholder:
+    admin:
+      birth_date: Birth date
+      birth_place: Birth place
+      document_number: Document number
+      email: Email
+      first_name: First name
+      last_name: Last name
     birth_date: Birth date
     birth_place: Birth place
-    city_resident: City resident
     document_number: Document number
     first_name: First name
     last_name: Last name
