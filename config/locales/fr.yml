@@ -5,14 +5,14 @@ fr:
         available_methods: Méthodes disponibles
       id: Id
       unique_identity_information:
-        birth_date: Birth date
-        birth_place: Birth place
-        city_resident: City resident
+        birth_date: Date de naissance
+        birth_place: Lieu de naissance
+        city_resident: Résident à Paris
         document_number: Numéro de document (avec lettre)
         document_type: Type de document
-        first_name: First name
-        last_name: Last name
-        residence_document_type: Residence document type
+        first_name: Prénom
+        last_name: Nom de famille
+        residence_document_type: Indiquez le type de justificatif de domicile
       unique_identity_upload:
         document_number: Numéro de document (avec lettre)
         document_type: Type de votre document
@@ -70,14 +70,14 @@ fr:
           rejection_notice: Il y a eu un problème avec votre vérification. Veuillez essayer à nouveau
           send: Renouveler la demande de vérification
         form:
-          document_scan: Document scan
+          document_scan: Scan de document
           document_scan_help:
             description: Description
-            explanation: Explanation
-            guidelines: Guidelines
-            title: Document scan help
-          documents_information: Documents information
-          personal_information: Personal information
+            explanation: Explication
+            guidelines: Guide
+            title: Aide pour le scan de document
+          documents_information: Informations du document
+          personal_information: Informations personnelles
         new:
           send: Demande de vérification
           title: Importez votre document d'identité
@@ -107,26 +107,26 @@ fr:
             error: Un problème est survenu lors du chargement de votre document
             success: Document importé avec succès
         type:
-          dni: DNI
-          energy_bill: Energy bill
-          fix_phone_bill: Fix phone bill
-          internet_bill: Internet bill
-          nie: NIE
-          passport: Passport
+          dni: Carte nationale d'identité
+          energy_bill: Facture de fournisseur d'énergie
+          fix_phone_bill: Facture de téléphone fixe
+          internet_bill: Facture Internet
+          nie: Carte de séjour ou de résident
+          passport: Passeport
   errors:
     messages:
       date_format: 'doit être au format de date : dd/mm/yyyy'
       uppercase_only_letters_numbers: doit être en majuscule et ne contenir que des lettres et/ou des chiffres
   placeholder:
     admin:
-      birth_date: Birth date
-      birth_place: Birth place
-      document_number: Document number
+      birth_date: Date de naissance
+      birth_place: Lieu de naissance
+      document_number: Numéro de document d'identité
       email: Email
-      first_name: First name
-      last_name: Last name
-    birth_date: Birth date
-    birth_place: Birth place
-    document_number: Document number
-    first_name: First name
-    last_name: Last name
+      first_name: Prénom
+      last_name: Nom de famille
+    birth_date: Date de naissance
+    birth_place: Lieu de naissance
+    document_number: Numéro de document d'identité
+    first_name: Prénom
+    last_name: Nom de famille
