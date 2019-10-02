@@ -6,8 +6,14 @@ en:
         available_methods: Available methods
       id: Id
       unique_identity_information:
+        birth_date: Birth date
+        birth_place: Birth place
+        city_resident: City resident
         document_number: Document number (with letter)
         document_type: Type of the document
+        first_name: First name
+        last_name: Last name
+        residence_document_type: Residence document type
       unique_identity_upload:
         document_number: Document number (with letter)
         document_type: Type of your document
@@ -68,6 +74,18 @@ en:
           rejection_notice: There was a problem with your verification. Please try
             again
           send: Request verification again
+        form:
+          document_information: Document information
+          document_scan: Document scan
+          document_scan_help:
+            bad: Bad
+            bad_explanation: Bad explanation
+            description: Description
+            good: Good
+            good_explanation: Good explanation
+            title: Document scan help
+          documents_information: Documents information
+          personal_information: Personal information
         new:
           send: Request verification
           title: Upload your identity document
@@ -109,3 +127,10 @@ en:
       date_format: 'must be on date format: dd/mm/yyyy'
       uppercase_only_letters_numbers: must be all uppercase and contain only letters
         and/or numbers
+  placeholder:
+    birth_date: Birth date
+    birth_place: Birth place
+    city_resident: City resident
+    document_number: Document number
+    first_name: First name
+    last_name: Last name
