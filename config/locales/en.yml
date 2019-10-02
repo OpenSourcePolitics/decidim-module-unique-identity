@@ -77,11 +77,9 @@ en:
         form:
           document_scan: Document scan
           document_scan_help:
-            bad: Bad
-            bad_explanation: Bad explanation
             description: Description
-            good: Good
-            good_explanation: Good explanation
+            explanation: Explanation
+            guidelines: Guidelines
             title: Document scan help
           documents_information: Documents information
           personal_information: Personal information

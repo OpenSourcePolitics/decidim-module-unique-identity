@@ -51,20 +51,11 @@
         <p><%= t("description", scope: "decidim.unique_identity.authorizations.form.document_scan_help") %></p>
       </div>
       <div class="document_scan_help__examples">
-        <div class="document_scan_help__examples--good">
-          <h3><%= t("good", scope: "decidim.unique_identity.authorizations.form.document_scan_help") %></h3>
-          <p><%= t("good_explanation", scope: "decidim.unique_identity.authorizations.form.document_scan_help") %></p>
-          <%= link_to image_url("decidim/unique_identity/document_scan_good.png"), target: "_blank" do %>
-            <%= image_tag "decidim/unique_identity/document_scan_good.png" %>
-          <% end %>
-        </div>
-        <div class="document_scan_help__examples--bad">
-          <h3><%= t("bad", scope: "decidim.unique_identity.authorizations.form.document_scan_help") %></h3>
-          <p><%= t("bad_explanation", scope: "decidim.unique_identity.authorizations.form.document_scan_help") %></p>
-          <%= link_to image_url("decidim/unique_identity/document_scan_bad.png"), target: "_blank" do %>
-            <%= image_tag "decidim/unique_identity/document_scan_good.png" %>
-          <% end %>
-        </div>
+        <h3><%= t("guidelines", scope: "decidim.unique_identity.authorizations.form.document_scan_help") %></h3>
+        <p><%= t("explanation", scope: "decidim.unique_identity.authorizations.form.document_scan_help") %></p>
+        <%= link_to image_url("decidim/unique_identity/document_scan.jpg"), target: "_blank" do %>
+          <%= image_tag "decidim/unique_identity/document_scan.jpg" %>
+        <% end %>
       </div>
     <% end %>
     <div class="field verification_attachment__upload">
