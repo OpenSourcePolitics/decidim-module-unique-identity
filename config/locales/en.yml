@@ -1,3 +1,4 @@
+---
 en:
   activemodel:
     attributes:
@@ -23,10 +24,11 @@ en:
       admin:
         unique_identity:
           help:
-            - Users fill in their identity information and upload a copy of their document.
-            - You fill in the information present in the uploaded image.
-            - The information should match whatever the user filled in.
-            - If you can't clearly see the information or you can't get it verified, you can reject the request and the user will be able to fix it.
+          - Users fill in their identity information and upload a copy of their document.
+          - You fill in the information present in the uploaded image.
+          - The information should match whatever the user filled in.
+          - If you can't clearly see the information or you can't get it verified,
+            you can reject the request and the user will be able to fix it.
       unique_identity:
         explanation: explanation
         name: Unique identity
@@ -47,7 +49,8 @@ en:
         offline_confirmations:
           new:
             cancel: Cancel
-            introduce_user_data: Introduce the participant email and the document data
+            introduce_user_data: Introduce the participant email and the document
+              data
             verify: Verify
         pending_authorizations:
           index:
@@ -65,9 +68,11 @@ en:
           being_reviewed: We're reviewing your documents. You'll be verified shortly
           offline: Use offline verification
           online: Use online verification
-          rejection_clarity: Make sure the information is clearly visible in the uploaded image
+          rejection_clarity: Make sure the information is clearly visible in the uploaded
+            image
           rejection_correctness: Make sure the information entered is correct
-          rejection_notice: There was a problem with your verification. Please try again
+          rejection_notice: There was a problem with your verification. Please try
+            again
           send: Request verification again
         form:
           document_scan: Document scan
@@ -98,7 +103,8 @@ en:
               success: Participant successfully verified
           rejections:
             create:
-              success: Verification rejected. Participant will be prompted to amend her documents
+              success: Verification rejected. Participant will be prompted to amend
+                her documents
         authorizations:
           create:
             error: There was a problem uploading your document
@@ -116,7 +122,8 @@ en:
   errors:
     messages:
       date_format: 'must be on date format: dd/mm/yyyy'
-      uppercase_only_letters_numbers: must be all uppercase and contain only letters and/or numbers
+      uppercase_only_letters_numbers: must be all uppercase and contain only letters
+        and/or numbers
   placeholder:
     admin:
       birth_date: Birth date
