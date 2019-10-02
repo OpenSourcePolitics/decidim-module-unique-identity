@@ -146,7 +146,7 @@ describe "Identity document online review", type: :system do
     fill_in "Document number (with letter)", with: doc_number
     select residence_doc_type, from: "Residence document type"
     check "City resident" if city_resident
-    attach_file "Scanned copy of your document", Decidim::Dev.asset(file_name)
+    attach_file "Scanned copy of your document", Decidim::Dev.asset(file_name), visible: false
 
     click_button "Request verification again"
   end

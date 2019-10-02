@@ -1,26 +1,34 @@
+<div class="card-divider">
+  <%= t(".personal_information") %>
+</div>
 <div class="card-section">
   <div class="field">
-    <%= form.text_field :last_name %>
+    <%= form.text_field :last_name, placeholder: t(:last_name, scope: "placeholder") %>
   </div>
 
   <div class="field">
-    <%= form.text_field :first_name %>
+    <%= form.text_field :first_name, placeholder: t(:first_name, scope: "placeholder") %>
   </div>
 
   <div class="field">
-    <%= form.text_field :birth_place %>
+    <%= form.text_field :birth_place, placeholder: t(:birth_place, scope: "placeholder") %>
   </div>
 
   <div class="field date">
-    <%= form.date_field :birth_date %>
+    <%= form.date_field :birth_date, placeholder: t(:birth_date, scope: "placeholder") %>
   </div>
+</div>
 
+<div class="card-divider">
+  <%= t(".documents_information") %>
+</div>
+<div class="card-section">
   <div class="field">
     <%= form.select :document_type, @form.document_types_for_select, prompt: true %>
   </div>
 
   <div class="field">
-    <%= form.text_field :document_number %>
+    <%= form.text_field :document_number, placeholder: t(:document_number, scope: "placeholder") %>
   </div>
 
   <div class="field">
@@ -30,12 +38,31 @@
   <div class="field">
     <%= form.check_box :city_resident %>
   </div>
+</div>
 
-  <% if using_online? %>
-    <div class="field">
+<% if using_online? %>
+  <div class="card-divider">
+    <%= t(".document_scan") %>
+  </div>
+  <div class="card-section">
+    <%= floating_help(1) do %>
+      <div class="document_scan_help__intro">
+        <h2><%= t("title", scope: "decidim.unique_identity.authorizations.form.document_scan_help") %></h2>
+        <p><%= t("description", scope: "decidim.unique_identity.authorizations.form.document_scan_help") %></p>
+      </div>
+      <div class="document_scan_help__examples">
+        <h3><%= t("guidelines", scope: "decidim.unique_identity.authorizations.form.document_scan_help") %></h3>
+        <p><%= t("explanation", scope: "decidim.unique_identity.authorizations.form.document_scan_help") %></p>
+        <%= link_to image_url("decidim/unique_identity/document_scan.jpg"), target: "_blank" do %>
+          <%= image_tag "decidim/unique_identity/document_scan.jpg" %>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="field verification_attachment__upload">
       <%= form.upload :verification_attachment %>
     </div>
-  <% end %>
+  </div>
+<% end %>
 
-  <%= form.hidden_field :verification_type, value: verification_type %>
-</div>
+<%= form.hidden_field :verification_type, value: verification_type %>
+<%= stylesheet_link_tag "decidim/unique_identity/unique_identity" %>
