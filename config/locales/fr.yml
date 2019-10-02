@@ -91,9 +91,13 @@ fr:
           update:
             error: Un problème est survenu lors du chargement de votre document
             success: Document importé avec succès
-        dni: Carte nationale d'identité
-        nie: Carte de séjour ou de résident
-        passport: Passeport
+        type:
+          dni: DNI
+          nie: NIE
+          passport: Passport
+          energy_bill: Energy bill
+          fix_phone_bill: Fix phone bill
+          internet_bill: Internet bill
   errors:
     messages:
       date_format: 'doit être au format de date : dd/mm/yyyy'
