@@ -93,11 +93,11 @@ fr:
             success: Document importé avec succès
         type:
           dni: DNI
-          nie: NIE
-          passport: Passport
           energy_bill: Energy bill
           fix_phone_bill: Fix phone bill
           internet_bill: Internet bill
+          nie: NIE
+          passport: Passport
   errors:
     messages:
       date_format: 'doit être au format de date : dd/mm/yyyy'
