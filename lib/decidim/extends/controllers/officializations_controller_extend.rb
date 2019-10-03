@@ -10,7 +10,9 @@ module OfficializationsControllerExtend
   end
 
   def authorizations
-    @authorizations = Decidim::Verifications::Authorizations.new(organization: current_organization, name: "unique_identity").query
+    @authorizations ||= Decidim::Verifications::Authorizations.new(organization: current_organization, name: "unique_identity", granted: true)
+                                                              .query
+                                                              .where("verification_metadata->'rejected' IS NULL")
   end
 end
 

@@ -39,7 +39,7 @@ en:
           reofficialize: Reofficialize
           search: Search
           status: Status
-          unique_id: Unique
+          unique_id: Unique id
           unofficialize: Unofficialize
       titles:
         participants: Participants

@@ -234,8 +234,26 @@ describe "Admin manages officializations", type: :system do
     end
 
     context "when user has no authorization" do
-      it "displays unique id" do
+      it "doesn't displays unique id" do
         within "tr[data-user-id=\"#{user.id}\"]" do
+          expect(page).not_to have_content("unique id")
+        end
+      end
+    end
+
+    context "when user has a pending authorization" do
+      let!(:authorization) do
+        create(
+          :authorization,
+          :pending,
+          id: 1,
+          name: "unique_identity",
+          user: auth_user
+        )
+      end
+
+      it "doesn't displays unique id" do
+        within "tr[data-user-id=\"#{auth_user.id}\"]" do
           expect(page).not_to have_content("unique id")
         end
       end
