@@ -152,7 +152,7 @@ describe "Identity document request edition", type: :system do
     fill_in "Document number (with letter)", with: doc_number
     select residence_doc_type, from: "Residence document type"
     check "City resident" if city_resident
-    attach_file("Scanned copy of your document", Decidim::Dev.asset(file_name), visible: false) if file_name
+    attach_file("Scanned copy of your document", Decidim::Dev.asset(file_name)) if file_name
 
     click_button "Request verification again"
   end
