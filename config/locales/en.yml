@@ -20,6 +20,29 @@ en:
         user: Participant
         verification_attachment: Scanned copy of your document
   decidim:
+    admin:
+      officializations:
+        index:
+          actions: Actions
+          badge: Badge
+          created_at: Created at
+          filter:
+            all: All
+            not_officialized: Not officialized
+            officialized: Officialized
+          filter_by: Filter by
+          name: Name
+          nickname: Nickname
+          not_officialized: Not officialized
+          officialize: Officialize
+          officialized: Officialized
+          reofficialize: Reofficialize
+          search: Search
+          status: Status
+          unique_id: Unique
+          unofficialize: Unofficialize
+      titles:
+        participants: Participants
     authorization_handlers:
       admin:
         unique_identity:
@@ -35,6 +58,7 @@ en:
     components:
       unique_identity:
         name: UniqueIdentity
+    contact: Contact
     unique_identity:
       admin:
         config:

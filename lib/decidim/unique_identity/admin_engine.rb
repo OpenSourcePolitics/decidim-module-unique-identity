@@ -24,6 +24,10 @@ module Decidim
       def load_seed
         nil
       end
+
+      initializer "decidim_unique_identity.assets" do
+        require "decidim/extends/controllers/officializations_controller_extend"
+      end
     end
   end
 end
