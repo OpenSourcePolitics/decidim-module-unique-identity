@@ -18,6 +18,7 @@ module Decidim
 
           Decidim::Verifications::PerformAuthorizationStep.call(@pending_authorization, @form) do
             on(:ok) do
+              notify_user
               flash[:notice] = t("rejections.create.success", scope: "decidim.verifications.unique_identity.admin")
               redirect_to root_path
             end
@@ -28,6 +29,27 @@ module Decidim
 
         def load_pending_authorization
           @pending_authorization = Authorization.find(params[:pending_authorization_id])
+        end
+
+        def notify_user
+          components.each do |component|
+            Decidim::EventsManager.publish(
+                event: "decidim.events.budgets.order_checkout",
+                event_class: Decidim::UniqueIdentity::AuthorizationRejectionEvent,
+                resource: component,
+                affected_users: [@pending_authorization.user]
+            )
+          end
+        end
+
+        def components
+          Decidim::Component.where.not(permissions: nil).select do |component|
+            component.permissions.any? do |key, value|
+              value["authorization_handlers"].any? do |key, value|
+                key == "unique_identity"
+              end
+            end
+          end
         end
       end
     end
