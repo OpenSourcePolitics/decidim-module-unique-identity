@@ -56,11 +56,17 @@ describe "Identity document online review", type: :system do
     fill_in "First name", with: "Jean"
     fill_in "Birth date", with: "02/08/1986"
     fill_in "Birth place", with: "Marseille"
+
+    check_boxes(
+      city_resident: true,
+      criminal_record: false,
+      user_agreement: false
+    )
+
     submit_verification_form(
       doc_type: "DNI",
       doc_number: "XXXXXXXX",
-      residence_doc_type: "Energy bill",
-      city_resident: true
+      residence_doc_type: "Energy bill"
     )
 
     expect(page).to have_content("Participant successfully verified")
@@ -72,11 +78,17 @@ describe "Identity document online review", type: :system do
     fill_in "First name", with: "Armando"
     fill_in "Birth date", with: "15/12/1998"
     fill_in "Birth place", with: "Paris"
+
+    check_boxes(
+      city_resident: true,
+      criminal_record: false,
+      user_agreement: false
+    )
+
     submit_verification_form(
       doc_type: "NIE",
       doc_number: "XXXXXXXY",
-      residence_doc_type: "Energy bill",
-      city_resident: true
+      residence_doc_type: "Energy bill"
     )
 
     expect(page).to have_content("Verification doesn't match")
@@ -107,12 +119,18 @@ describe "Identity document online review", type: :system do
         fill_in "First name", with: "Jean"
         fill_in "Birth date", with: "02/08/1986"
         fill_in "Birth place", with: "Marseille"
+
+        check_boxes(
+          city_resident: true,
+          criminal_record: true,
+          user_agreement: true
+        )
+
         submit_reupload_form(
           doc_type: "DNI",
           doc_number: "XXXXXXXY",
           file_name: "dni.jpg",
-          residence_doc_type: "Energy bill",
-          city_resident: true
+          residence_doc_type: "Energy bill"
         )
         expect(page).to have_content("Document successfully reuploaded")
 
@@ -124,11 +142,17 @@ describe "Identity document online review", type: :system do
         fill_in "First name", with: "Jean"
         fill_in "Birth date", with: "02/08/1986"
         fill_in "Birth place", with: "Marseille"
+
+        check_boxes(
+          city_resident: true,
+          criminal_record: false,
+          user_agreement: false
+        )
+
         submit_verification_form(
           doc_type: "DNI",
           doc_number: "XXXXXXXY",
-          residence_doc_type: "Energy bill",
-          city_resident: true
+          residence_doc_type: "Energy bill"
         )
         expect(page).to have_content("Participant successfully verified")
       end
@@ -143,20 +167,24 @@ describe "Identity document online review", type: :system do
 
   private
 
-  def submit_verification_form(doc_type:, doc_number:, residence_doc_type:, city_resident:)
+  def check_boxes(city_resident:, criminal_record:, user_agreement:)
+    check "City resident" if city_resident
+    check "Criminal record" if criminal_record
+    check "User agreement" if user_agreement
+  end
+
+  def submit_verification_form(doc_type:, doc_number:, residence_doc_type:)
     select doc_type, from: "Type of the document"
     fill_in "Document number (with letter)", with: doc_number
     select residence_doc_type, from: "Residence document type"
-    check "City resident" if city_resident
 
     click_button "Verify"
   end
 
-  def submit_reupload_form(doc_type:, doc_number:, residence_doc_type:, city_resident:, file_name:)
+  def submit_reupload_form(doc_type:, doc_number:, residence_doc_type:, file_name:)
     select doc_type, from: "Type of your document"
     fill_in "Document number (with letter)", with: doc_number
     select residence_doc_type, from: "Residence document type"
-    check "City resident" if city_resident
     attach_file "Scanned copy of your document", Decidim::Dev.asset(file_name)
 
     click_button "Request verification again"
