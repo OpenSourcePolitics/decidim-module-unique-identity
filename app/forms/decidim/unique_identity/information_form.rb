@@ -20,10 +20,12 @@ module Decidim
       attribute :residence_document_type, String
       attribute :verification_type, String
       attribute :city_resident, Boolean
+      attribute :criminal_record, Boolean
+      attribute :user_agreement, Boolean
 
       validates :last_name, :first_name, :birth_date, :birth_place, presence: true
 
-      validates :city_resident, acceptance: true
+      validates :city_resident, :criminal_record, :user_agreement, acceptance: true
 
       validate :birth_date_is_of_date_type
 
