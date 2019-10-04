@@ -24,6 +24,7 @@ describe "Identity document online upload", type: :system do
     fill_in "First name", with: "Bar"
     fill_in "Birth date", with: "12/06/2003"
     fill_in "Birth place", with: "Dummy"
+    select_gender(gender: "Female")
     submit_upload_form(
       doc_type: "DNI",
       doc_number: "XXXXXXXX",
@@ -40,6 +41,7 @@ describe "Identity document online upload", type: :system do
     fill_in "First name", with: "Bar"
     fill_in "Birth date", with: "12/06/2003"
     fill_in "Birth place", with: "Dummy"
+    select_gender(gender: "Female")
     submit_upload_form(
       doc_type: "DNI",
       doc_number: "XXXXXXXX",
@@ -52,6 +54,10 @@ describe "Identity document online upload", type: :system do
   end
 
   private
+
+  def select_gender(gender:)
+    select gender, from: "Gender"
+  end
 
   def submit_upload_form(doc_type:, doc_number:, residence_doc_type:, city_resident:, file_name:)
     select doc_type, from: "Type of your document"

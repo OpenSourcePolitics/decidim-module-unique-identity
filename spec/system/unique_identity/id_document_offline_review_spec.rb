@@ -25,6 +25,7 @@ describe "Identity document offline review", type: :system do
         "verification_type" => "offline",
         "document_type" => "DNI",
         "document_number" => "XXXXXXXX",
+        "gender" => "male",
         "last_name" => "EL FAMOSO",
         "first_name" => "ARMANDO",
         "birth_date" => "15-12-1998",
@@ -49,6 +50,7 @@ describe "Identity document offline review", type: :system do
     fill_in "First name", with: "Armando"
     fill_in "Birth date", with: "15/12/1998"
     fill_in "Birth place", with: "Paris"
+    select_gender(gender: "Male")
     submit_verification_form(
       doc_type: "DNI",
       doc_number: "XXXXXXXX",
@@ -64,6 +66,7 @@ describe "Identity document offline review", type: :system do
     fill_in "First name", with: "Bar"
     fill_in "Birth date", with: "12/06/2003"
     fill_in "Birth place", with: "Dummy"
+    select_gender(gender: "male")
     submit_verification_form(
       doc_type: "DNI",
       doc_number: "XXXXXXXX",
@@ -81,6 +84,7 @@ describe "Identity document offline review", type: :system do
     fill_in "First name", with: "Bar"
     fill_in "Birth date", with: "12/06/2003"
     fill_in "Birth place", with: "Dummy"
+    select_gender(gender: "Male")
     submit_verification_form(
       doc_type: "NIE",
       doc_number: "XXXXXXXY",
@@ -93,6 +97,10 @@ describe "Identity document offline review", type: :system do
   end
 
   private
+
+  def select_gender(gender:)
+    select gender, from: "Gender"
+  end
 
   def submit_verification_form(doc_type:, doc_number:, residence_doc_type:, city_resident:, user_email: user.email)
     fill_in "Participant email", with: user_email

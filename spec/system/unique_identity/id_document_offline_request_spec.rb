@@ -31,6 +31,8 @@ describe "Identity document offline request", type: :system do
     fill_in "Birth date", with: "12/06/2003"
     fill_in "Birth place", with: "Dummy"
 
+    select_gender(gender: "Male")
+
     submit_upload_form(
       doc_type: "DNI",
       doc_number: "XXXXXXXX",
@@ -42,6 +44,10 @@ describe "Identity document offline request", type: :system do
   end
 
   private
+
+  def select_gender(gender:)
+    select gender, from: "Gender"
+  end
 
   def submit_upload_form(doc_type:, doc_number:, residence_doc_type:, city_resident:)
     select doc_type, from: "Type of your document"
