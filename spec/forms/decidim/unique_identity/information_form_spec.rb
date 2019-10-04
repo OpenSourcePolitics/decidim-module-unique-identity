@@ -15,7 +15,9 @@ module Decidim::UniqueIdentity
         birth_date: birth_date,
         birth_place: birth_place,
         residence_document_type: residence_document_type,
-        city_resident: city_resident
+        city_resident: city_resident,
+        criminal_record: criminal_record,
+        user_agreement: user_agreement
       )
     end
 
@@ -30,6 +32,8 @@ module Decidim::UniqueIdentity
     let(:document_number) { "XXXXXXXXY" }
     let(:residence_document_type) { "energy_bill" }
     let(:city_resident) { true }
+    let(:criminal_record) { true }
+    let(:user_agreement) { true }
 
     context "when the information is valid" do
       it "is valid" do
@@ -80,6 +84,22 @@ module Decidim::UniqueIdentity
 
     context "when city resident is not true" do
       let(:city_resident) { false }
+
+      it "is not valid" do
+        expect(subject).not_to be_valid
+      end
+    end
+
+    context "when criminal record is not true" do
+      let(:criminal_record) { false }
+
+      it "is not valid" do
+        expect(subject).not_to be_valid
+      end
+    end
+
+    context "when user agreement is not true" do
+      let(:user_agreement) { false }
 
       it "is not valid" do
         expect(subject).not_to be_valid
