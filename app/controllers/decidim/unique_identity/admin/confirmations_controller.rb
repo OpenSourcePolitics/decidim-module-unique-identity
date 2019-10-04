@@ -14,7 +14,7 @@ module Decidim
         def new
           enforce_permission_to :update, :authorization, authorization: @pending_authorization
 
-          @form = InformationForm.new
+          @form = InformationForm.from_model(@pending_authorization)
         end
 
         def create

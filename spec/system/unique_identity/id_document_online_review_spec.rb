@@ -40,6 +40,17 @@ describe "Identity document online review", type: :system do
     click_link "Verification #1"
   end
 
+  it "displays user infos" do
+    expect(page).to have_field("Last name", with: "PETIT")
+    expect(page).to have_field("First name", with: "JEAN")
+    expect(page).to have_field("Birth place", with: "MARSEILLE")
+    expect(page).to have_field("Birth date", with: "02/08/1986")
+    expect(page).to have_select("Type of the document", selected: "DNI")
+    expect(page).to have_field("Document number (with letter)", with: "XXXXXXXX")
+    expect(page).to have_select("Residence document type", selected: "Energy bill")
+    expect(page).to have_checked_field("City resident")
+  end
+
   it "allows the user to verify an identity document" do
     fill_in "Last name", with: "Petit"
     fill_in "First name", with: "Jean"
