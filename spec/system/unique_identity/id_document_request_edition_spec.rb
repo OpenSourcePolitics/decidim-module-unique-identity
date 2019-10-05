@@ -22,6 +22,7 @@ describe "Identity document request edition", type: :system do
         "verification_type" => verification_method,
         "document_type" => "DNI",
         "document_number" => "XXXXXXXX",
+        "gender" => "female",
         "last_name" => "El Foo",
         "first_name" => "Bar",
         "birth_date" => "12/04/1994",
@@ -79,6 +80,7 @@ describe "Identity document request edition", type: :system do
       expect(page).not_to have_content("Scanned copy of your document")
       expect(page).to have_content("This is my explanation text")
 
+      select_gender(gender: "Female")
       check_boxes(
         city_resident: true,
         criminal_record: true,
@@ -115,6 +117,7 @@ describe "Identity document request edition", type: :system do
         expect(page).not_to have_content("Scanned copy of your document")
         click_link "Use online verification"
 
+        select_gender(gender: "Female")
         check_boxes(
           city_resident: true,
           criminal_record: true,
@@ -144,6 +147,7 @@ describe "Identity document request edition", type: :system do
         click_link "Use offline verification"
         expect(page).not_to have_content("Scanned copy of your document")
 
+        select_gender(gender: "Female")
         check_boxes(
           city_resident: true,
           criminal_record: true,
@@ -166,6 +170,10 @@ describe "Identity document request edition", type: :system do
   end
 
   private
+
+  def select_gender(gender:)
+    select gender, from: "Gender"
+  end
 
   def submit_upload_form(doc_type:, doc_number:, residence_doc_type:, file_name: nil)
     select doc_type, from: "Type of your document"

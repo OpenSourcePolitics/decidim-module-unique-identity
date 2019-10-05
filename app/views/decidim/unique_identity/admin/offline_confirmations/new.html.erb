@@ -12,6 +12,7 @@
         <%= form.text_field :email, placeholder: t(:email, scope: "placeholder.admin") %>
         <%= form.text_field :last_name, placeholder: t(:last_name, scope: "placeholder.admin") %>
         <%= form.text_field :first_name, placeholder: t(:first_name, scope: "placeholder.admin") %>
+        <%= form.select :gender, @form.gender_types_for_select, prompt: true %>
         <%= form.text_field :birth_place, placeholder: t(:birth_place, scope: "placeholder.admin") %>
         <%= form.date_field :birth_date, placeholder: t(:birth_date, scope: "placeholder.admin") %>
         <%= form.select :document_type, @form.document_types_for_select, prompt: true, selected: nil %>

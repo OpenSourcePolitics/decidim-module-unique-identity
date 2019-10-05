@@ -25,6 +25,7 @@ describe "Identity document offline review", type: :system do
         "verification_type" => "offline",
         "document_type" => "DNI",
         "document_number" => "XXXXXXXX",
+        "gender" => "male",
         "last_name" => "EL FAMOSO",
         "first_name" => "ARMANDO",
         "birth_date" => "15-12-1998",
@@ -56,6 +57,7 @@ describe "Identity document offline review", type: :system do
       user_agreement: false
     )
 
+    select_gender(gender: "Male")
     submit_verification_form(
       doc_type: "DNI",
       doc_number: "XXXXXXXX",
@@ -77,6 +79,7 @@ describe "Identity document offline review", type: :system do
       user_agreement: false
     )
 
+    select_gender(gender: "male")
     submit_verification_form(
       doc_type: "DNI",
       doc_number: "XXXXXXXX",
@@ -100,6 +103,7 @@ describe "Identity document offline review", type: :system do
       user_agreement: false
     )
 
+    select_gender(gender: "Male")
     submit_verification_form(
       doc_type: "NIE",
       doc_number: "XXXXXXXY",
@@ -111,6 +115,10 @@ describe "Identity document offline review", type: :system do
   end
 
   private
+
+  def select_gender(gender:)
+    select gender, from: "Gender"
+  end
 
   def check_boxes(city_resident:, criminal_record:, user_agreement:)
     check "City resident" if city_resident

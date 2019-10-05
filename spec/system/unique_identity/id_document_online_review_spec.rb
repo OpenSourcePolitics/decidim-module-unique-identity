@@ -22,6 +22,7 @@ describe "Identity document online review", type: :system do
         "document_number" => "XXXXXXXX",
         "last_name" => "PETIT",
         "first_name" => "JEAN",
+        "gender" => "male",
         "birth_date" => "02-08-1986",
         "birth_place" => "MARSEILLE",
         "residence_document_type" => "energy_bill",
@@ -43,6 +44,7 @@ describe "Identity document online review", type: :system do
   it "displays user infos" do
     expect(page).to have_field("Last name", with: "PETIT")
     expect(page).to have_field("First name", with: "JEAN")
+    expect(page).to have_select("Gender", selected: "Male")
     expect(page).to have_field("Birth place", with: "MARSEILLE")
     expect(page).to have_field("Birth date", with: "02/08/1986")
     expect(page).to have_select("Type of the document", selected: "DNI")
@@ -56,6 +58,7 @@ describe "Identity document online review", type: :system do
     fill_in "First name", with: "Jean"
     fill_in "Birth date", with: "02/08/1986"
     fill_in "Birth place", with: "Marseille"
+    select_gender(gender: "Male")
 
     check_boxes(
       city_resident: true,
@@ -85,6 +88,7 @@ describe "Identity document online review", type: :system do
       user_agreement: false
     )
 
+    select_gender(gender: "Male")
     submit_verification_form(
       doc_type: "NIE",
       doc_number: "XXXXXXXY",
@@ -119,6 +123,7 @@ describe "Identity document online review", type: :system do
         fill_in "First name", with: "Jean"
         fill_in "Birth date", with: "02/08/1986"
         fill_in "Birth place", with: "Marseille"
+        select_gender(gender: "Male")
 
         check_boxes(
           city_resident: true,
@@ -137,11 +142,13 @@ describe "Identity document online review", type: :system do
         relogin_as admin, scope: :user
         visit decidim_admin_unique_identity.root_path
         click_link "Verification #1"
+
         expect(page).to have_css("img[src*='dni.jpg']")
         fill_in "Last name", with: "Petit"
         fill_in "First name", with: "Jean"
         fill_in "Birth date", with: "02/08/1986"
         fill_in "Birth place", with: "Marseille"
+        select_gender(gender: "Male")
 
         check_boxes(
           city_resident: true,
@@ -166,6 +173,10 @@ describe "Identity document online review", type: :system do
   end
 
   private
+
+  def select_gender(gender:)
+    select gender, from: "Gender"
+  end
 
   def check_boxes(city_resident:, criminal_record:, user_agreement:)
     check "City resident" if city_resident
