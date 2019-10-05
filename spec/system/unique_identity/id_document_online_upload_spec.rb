@@ -24,6 +24,7 @@ describe "Identity document online upload", type: :system do
     fill_in "First name", with: "Bar"
     fill_in "Birth date", with: "12/06/2003"
     fill_in "Birth place", with: "Dummy"
+    select_gender(gender: "Female")
 
     check_boxes(
       city_resident: true,
@@ -46,6 +47,7 @@ describe "Identity document online upload", type: :system do
     fill_in "First name", with: "Bar"
     fill_in "Birth date", with: "12/06/2003"
     fill_in "Birth place", with: "Dummy"
+    select_gender(gender: "Female")
 
     check_boxes(
       city_resident: true,
@@ -64,6 +66,10 @@ describe "Identity document online upload", type: :system do
   end
 
   private
+
+  def select_gender(gender:)
+    select gender, from: "Gender"
+  end
 
   def check_boxes(city_resident:, criminal_record:, user_agreement:)
     check "City resident" if city_resident

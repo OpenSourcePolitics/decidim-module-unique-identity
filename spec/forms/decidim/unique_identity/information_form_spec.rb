@@ -11,6 +11,7 @@ module Decidim::UniqueIdentity
         document_type: document_type,
         document_number: document_number,
         last_name: last_name,
+        gender: gender,
         first_name: first_name,
         birth_date: birth_date,
         birth_place: birth_place,
@@ -27,6 +28,7 @@ module Decidim::UniqueIdentity
     let(:first_name) { "Bar" }
     let(:birth_date) { "12/06/2003" }
     let(:birth_place) { "Dummy 23" }
+    let(:gender) { "female" }
     let(:verification_type) { "online" }
     let(:document_type) { "DNI" }
     let(:document_number) { "XXXXXXXXY" }
@@ -41,7 +43,7 @@ module Decidim::UniqueIdentity
       end
 
       it "return a unique id" do
-        expect(subject.unique_id).to eq("EL-FOO_BAR_12-06-2003_DUMMY-23")
+        expect(subject.unique_id).to eq("EL-FOO_BAR_FEMALE_12-06-2003_DUMMY-23")
       end
     end
 
@@ -79,6 +81,15 @@ module Decidim::UniqueIdentity
       it "is not valid" do
         expect(subject).not_to be_valid
         expect(subject.errors[:residence_document_type]).to include("is not included in the list")
+      end
+    end
+
+    context "when the gender is invalid" do
+      let(:gender) { "other" }
+
+      it "is not valid" do
+        expect(subject).not_to be_valid
+        expect(subject.errors[:gender]).to include("is not included in the list")
       end
     end
 

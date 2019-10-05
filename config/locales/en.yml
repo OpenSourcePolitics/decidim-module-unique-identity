@@ -156,6 +156,9 @@ en:
           update:
             error: There was a problem reuploading your document
             success: Document successfully reuploaded
+        gender:
+          female: Female
+          male: Male
         type:
           dni: DNI
           energy_bill: Energy bill

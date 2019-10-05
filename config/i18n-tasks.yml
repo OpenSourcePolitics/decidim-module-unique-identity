@@ -7,6 +7,7 @@ ignore_unused:
   - "decidim.components.unique_identity.name"
   - "decidim.verifications.unique_identity.type.*"
   - "decidim.events.unique_identity.*"
+  - "decidim.verifications.unique_identity.gender.*"
   - "activemodel.attributes.unique_identity_upload.user"
   - "activemodel.attributes.unique_identity_information.*"
   - "activemodel.attributes.unique_identity_upload.document_number"
