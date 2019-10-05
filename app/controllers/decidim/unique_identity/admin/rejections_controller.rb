@@ -31,21 +31,25 @@ module Decidim
           @pending_authorization = Authorization.find(params[:pending_authorization_id])
         end
 
+        def user
+          @pending_authorization.user
+        end
+
         def notify_user
-          components.each do |component|
+          unique_id_components.each do |component|
             Decidim::EventsManager.publish(
-                event: "decidim.events.budgets.order_checkout",
-                event_class: Decidim::UniqueIdentity::AuthorizationRejectionEvent,
-                resource: component,
-                affected_users: [@pending_authorization.user]
+              event: "decidim.events.unique_identity.authorization_rejected",
+              event_class: Decidim::UniqueIdentity::AuthorizationRejectionEvent,
+              resource: component,
+              affected_users: [user]
             )
           end
         end
 
-        def components
+        def unique_id_components
           Decidim::Component.where.not(permissions: nil).select do |component|
-            component.permissions.any? do |key, value|
-              value["authorization_handlers"].any? do |key, value|
+            component.permissions.any? do |_key, value|
+              value["authorization_handlers"].any? do |key, _value|
                 key == "unique_identity"
               end
             end
