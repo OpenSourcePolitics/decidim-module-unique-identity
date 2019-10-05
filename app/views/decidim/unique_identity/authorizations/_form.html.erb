@@ -11,6 +11,10 @@
   </div>
 
   <div class="field">
+    <%= form.select :gender, @form.gender_types_for_select, prompt: true %>
+  </div>
+
+  <div class="field">
     <%= form.text_field :birth_place, placeholder: t(:birth_place, scope: "placeholder") %>
   </div>
 
@@ -37,6 +41,14 @@
 
   <div class="field">
     <%= form.check_box :city_resident %>
+  </div>
+
+  <div class="field">
+    <%= form.check_box :criminal_record %>
+  </div>
+
+  <div class="field">
+    <%= form.check_box :user_agreement %>
   </div>
 </div>
 

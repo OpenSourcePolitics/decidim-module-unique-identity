@@ -1,4 +1,5 @@
 <%= decidim_form_for(@form, url: pending_authorization_confirmation_path(@pending_authorization),
+                     method: :post,
                      html: { class: "form" }) do |form| %>
   <div class="card">
     <div class="card-divider">
@@ -16,10 +17,11 @@
       <div class="row column">
         <%= form.text_field :last_name, placeholder: t(:last_name, scope: "placeholder.admin") %>
         <%= form.text_field :first_name, placeholder: t(:first_name, scope: "placeholder.admin") %>
+        <%= form.select :gender, @form.gender_types_for_select, prompt: true %>
         <%= form.text_field :birth_place, placeholder: t(:birth_place, scope: "placeholder.admin") %>
         <%= form.date_field :birth_date, placeholder: t(:birth_date, scope: "placeholder.admin") %>
-        <%= form.select :document_type, @form.document_types_for_select, prompt: true, selected: nil %>
-        <%= form.text_field :document_number, value: nil, placeholder: t(:document_number, scope: "placeholder.admin") %>
+        <%= form.select :document_type, @form.document_types_for_select, prompt: true %>
+        <%= form.text_field :document_number, placeholder: t(:document_number, scope: "placeholder.admin") %>
         <%= form.select :residence_document_type, @form.residence_document_types_for_select, prompt: true %>
         <%= form.check_box :city_resident %>
         <%= form.hidden_field :verification_type, value: :online %>

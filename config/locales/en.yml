@@ -9,17 +9,42 @@ en:
         birth_date: Birth date
         birth_place: Birth place
         city_resident: City resident
+        criminal_record: Criminal record
         document_number: Document number (with letter)
         document_type: Type of the document
         first_name: First name
         last_name: Last name
         residence_document_type: Residence document type
+        user_agreement: User agreement
       unique_identity_upload:
         document_number: Document number (with letter)
         document_type: Type of your document
         user: Participant
         verification_attachment: Scanned copy of your document
   decidim:
+    admin:
+      officializations:
+        index:
+          actions: Actions
+          badge: Badge
+          created_at: Created at
+          filter:
+            all: All
+            not_officialized: Not officialized
+            officialized: Officialized
+          filter_by: Filter by
+          name: Name
+          nickname: Nickname
+          not_officialized: Not officialized
+          officialize: Officialize
+          officialized: Officialized
+          reofficialize: Reofficialize
+          search: Search
+          status: Status
+          unique_id: Unique id
+          unofficialize: Unofficialize
+      titles:
+        participants: Participants
     authorization_handlers:
       admin:
         unique_identity:
@@ -35,6 +60,25 @@ en:
     components:
       unique_identity:
         name: UniqueIdentity
+    contact: Contact
+    events:
+      unique_identity:
+        authorization_accepted:
+          email_intro: Your authorization application has been accepted on <a href='%{resource_url}'>%{participatory_space_title}</a>.
+          email_outro: Thank you for your participation.
+          email_subject: Your authorization application has been accepted on %{participatory_space_title}
+          notification_title: Your authorization application has been accepted on
+            <a href='%{resource_url}'>%{participatory_space_title}</a>.
+        authorization_rejected:
+          email_intro: 'Your authorization application has been rejected on <a href=''%{resource_url}''>%{participatory_space_title}</a>.
+            check that your documents meet the requirements and try again. If you
+            need help, please contact us at the following address: <a heref="mailto:mail@example.org">mail@example.org</a>'
+          email_outro: Thank you for your participation.
+          email_subject: Your authorization application has been rejected on %{participatory_space_title}
+          notification_title: 'Your authorization application has been rejected on
+            <a href=''%{resource_url}''>%{participatory_space_title}</a>. check that
+            your documents meet the requirements and try again. If you need help,
+            please contact us at the following address: <a heref="mailto:mail@example.org">mail@example.org</a>'
     unique_identity:
       admin:
         config:
@@ -112,6 +156,9 @@ en:
           update:
             error: There was a problem reuploading your document
             success: Document successfully reuploaded
+        gender:
+          female: Female
+          male: Male
         type:
           dni: DNI
           energy_bill: Energy bill

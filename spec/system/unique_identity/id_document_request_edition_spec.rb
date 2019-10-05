@@ -22,6 +22,7 @@ describe "Identity document request edition", type: :system do
         "verification_type" => verification_method,
         "document_type" => "DNI",
         "document_number" => "XXXXXXXX",
+        "gender" => "female",
         "last_name" => "El Foo",
         "first_name" => "Bar",
         "birth_date" => "12/04/1994",
@@ -44,11 +45,16 @@ describe "Identity document request edition", type: :system do
     it "allows the user to change the data" do
       expect(page).to have_selector("form", text: "Request verification again")
 
+      check_boxes(
+        city_resident: true,
+        criminal_record: true,
+        user_agreement: true
+      )
+
       submit_upload_form(
         doc_type: "DNI",
         doc_number: "XXXXXXXY",
         residence_doc_type: "Energy bill",
-        city_resident: true,
         file_name: "dni.jpg"
       )
       expect(page).to have_content("Document successfully reuploaded")
@@ -74,11 +80,17 @@ describe "Identity document request edition", type: :system do
       expect(page).not_to have_content("Scanned copy of your document")
       expect(page).to have_content("This is my explanation text")
 
+      select_gender(gender: "Female")
+      check_boxes(
+        city_resident: true,
+        criminal_record: true,
+        user_agreement: true
+      )
+
       submit_upload_form(
         doc_type: "DNI",
         doc_number: "XXXXXXXY",
-        residence_doc_type: "Energy bill",
-        city_resident: true
+        residence_doc_type: "Energy bill"
       )
       expect(page).to have_content("Document successfully reuploaded")
       authorization.reload
@@ -105,11 +117,17 @@ describe "Identity document request edition", type: :system do
         expect(page).not_to have_content("Scanned copy of your document")
         click_link "Use online verification"
 
+        select_gender(gender: "Female")
+        check_boxes(
+          city_resident: true,
+          criminal_record: true,
+          user_agreement: true
+        )
+
         submit_upload_form(
           doc_type: "DNI",
           doc_number: "XXXXXXXY",
           residence_doc_type: "Energy bill",
-          city_resident: true,
           file_name: "dni.jpg"
         )
 
@@ -129,11 +147,17 @@ describe "Identity document request edition", type: :system do
         click_link "Use offline verification"
         expect(page).not_to have_content("Scanned copy of your document")
 
+        select_gender(gender: "Female")
+        check_boxes(
+          city_resident: true,
+          criminal_record: true,
+          user_agreement: true
+        )
+
         submit_upload_form(
           doc_type: "DNI",
           doc_number: "XXXXXXXY",
-          residence_doc_type: "Energy bill",
-          city_resident: true
+          residence_doc_type: "Energy bill"
         )
 
         expect(page).to have_content("Document successfully reuploaded")
@@ -147,13 +171,22 @@ describe "Identity document request edition", type: :system do
 
   private
 
-  def submit_upload_form(doc_type:, doc_number:, residence_doc_type:, city_resident:, file_name: nil)
+  def select_gender(gender:)
+    select gender, from: "Gender"
+  end
+
+  def submit_upload_form(doc_type:, doc_number:, residence_doc_type:, file_name: nil)
     select doc_type, from: "Type of your document"
     fill_in "Document number (with letter)", with: doc_number
     select residence_doc_type, from: "Residence document type"
-    check "City resident" if city_resident
     attach_file("Scanned copy of your document", Decidim::Dev.asset(file_name)) if file_name
 
     click_button "Request verification again"
+  end
+
+  def check_boxes(city_resident:, criminal_record:, user_agreement:)
+    check "City resident" if city_resident
+    check "Criminal record" if criminal_record
+    check "User agreement" if user_agreement
   end
 end

@@ -24,11 +24,18 @@ describe "Identity document online upload", type: :system do
     fill_in "First name", with: "Bar"
     fill_in "Birth date", with: "12/06/2003"
     fill_in "Birth place", with: "Dummy"
+    select_gender(gender: "Female")
+
+    check_boxes(
+      city_resident: true,
+      criminal_record: true,
+      user_agreement: true
+    )
+
     submit_upload_form(
       doc_type: "DNI",
       doc_number: "XXXXXXXX",
       residence_doc_type: "Energy bill",
-      city_resident: true,
       file_name: "id.jpg"
     )
 
@@ -40,11 +47,18 @@ describe "Identity document online upload", type: :system do
     fill_in "First name", with: "Bar"
     fill_in "Birth date", with: "12/06/2003"
     fill_in "Birth place", with: "Dummy"
+    select_gender(gender: "Female")
+
+    check_boxes(
+      city_resident: true,
+      criminal_record: true,
+      user_agreement: true
+    )
+
     submit_upload_form(
       doc_type: "DNI",
       doc_number: "XXXXXXXX",
       residence_doc_type: "Energy bill",
-      city_resident: true,
       file_name: "Exampledocument.pdf"
     )
 
@@ -53,11 +67,20 @@ describe "Identity document online upload", type: :system do
 
   private
 
-  def submit_upload_form(doc_type:, doc_number:, residence_doc_type:, city_resident:, file_name:)
+  def select_gender(gender:)
+    select gender, from: "Gender"
+  end
+
+  def check_boxes(city_resident:, criminal_record:, user_agreement:)
+    check "City resident" if city_resident
+    check "Criminal record" if criminal_record
+    check "User agreement" if user_agreement
+  end
+
+  def submit_upload_form(doc_type:, doc_number:, residence_doc_type:, file_name:)
     select doc_type, from: "Type of your document"
     fill_in "Document number (with letter)", with: doc_number
     select residence_doc_type, from: "Residence document type"
-    check "City resident" if city_resident
     attach_file "Scanned copy of your document", Decidim::Dev.asset(file_name)
 
     click_button "Request verification"
