@@ -3,7 +3,6 @@
 module Decidim
   module UniqueIdentity
     module UniqueIdentityComponents
-
       private
 
       def user

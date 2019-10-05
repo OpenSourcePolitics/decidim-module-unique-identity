@@ -46,10 +46,10 @@ module Decidim
         def notify_user
           unique_id_components.each do |component|
             Decidim::EventsManager.publish(
-                event: "decidim.events.unique_identity.authorization_accepted",
-                event_class: Decidim::UniqueIdentity::AuthorizationAcceptionEvent,
-                resource: component,
-                affected_users: [user]
+              event: "decidim.events.unique_identity.authorization_accepted",
+              event_class: Decidim::UniqueIdentity::AuthorizationAcceptionEvent,
+              resource: component,
+              affected_users: [user]
             )
           end
         end
