@@ -7,6 +7,8 @@ describe "Identity document online review", type: :system do
     create(:organization, available_authorizations: ["unique_identity"])
   end
 
+  let!(:component) { create(:dummy_component) }
+
   let(:user) { create(:user, :confirmed, organization: organization) }
 
   let!(:authorization) do

@@ -61,6 +61,24 @@ en:
       unique_identity:
         name: UniqueIdentity
     contact: Contact
+    events:
+      unique_identity:
+        authorization_accepted:
+          email_intro: Your authorization application has been accepted on <a href='%{resource_url}'>%{participatory_space_title}</a>.
+          email_outro: Thank you for your participation.
+          email_subject: Your authorization application has been accepted on %{participatory_space_title}
+          notification_title: Your authorization application has been accepted on
+            <a href='%{resource_url}'>%{participatory_space_title}</a>.
+        authorization_rejected:
+          email_intro: 'Your authorization application has been rejected on <a href=''%{resource_url}''>%{participatory_space_title}</a>.
+            check that your documents meet the requirements and try again. If you
+            need help, please contact us at the following address: <a heref="mailto:mail@example.org">mail@example.org</a>'
+          email_outro: Thank you for your participation.
+          email_subject: Your authorization application has been rejected on %{participatory_space_title}
+          notification_title: 'Your authorization application has been rejected on
+            <a href=''%{resource_url}''>%{participatory_space_title}</a>. check that
+            your documents meet the requirements and try again. If you need help,
+            please contact us at the following address: <a heref="mailto:mail@example.org">mail@example.org</a>'
     unique_identity:
       admin:
         config:
