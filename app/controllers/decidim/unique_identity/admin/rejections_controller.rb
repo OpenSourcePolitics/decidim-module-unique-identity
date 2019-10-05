@@ -7,6 +7,7 @@ module Decidim
       # Handles rejections for verification by identity document upload.
       #
       class RejectionsController < Decidim::Admin::ApplicationController
+        include UniqueIdentityComponents
         layout "decidim/admin/users"
 
         before_action :load_pending_authorization
@@ -31,10 +32,6 @@ module Decidim
           @pending_authorization = Authorization.find(params[:pending_authorization_id])
         end
 
-        def user
-          @pending_authorization.user
-        end
-
         def notify_user
           unique_id_components.each do |component|
             Decidim::EventsManager.publish(
@@ -43,16 +40,6 @@ module Decidim
               resource: component,
               affected_users: [user]
             )
-          end
-        end
-
-        def unique_id_components
-          Decidim::Component.where.not(permissions: nil).select do |component|
-            component.permissions.any? do |_key, value|
-              value["authorization_handlers"].any? do |key, _value|
-                key == "unique_identity"
-              end
-            end
           end
         end
       end

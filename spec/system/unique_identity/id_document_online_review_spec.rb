@@ -75,6 +75,17 @@ describe "Identity document online review", type: :system do
     expect(page).to have_no_content("Verification #")
   end
 
+  it "notifies the user" do
+    expect(Decidim::EventsManager)
+        .to receive(:publish)
+                .with(
+                    event: "decidim.events.unique_identity.authorization_accepted",
+                    event_class: Decidim::UniqueIdentity::AuthorizationAcceptionEvent,
+                    resource: component,
+                    affected_users: [user]
+                )
+  end
+
   it "shows an error when information doesn't match" do
     fill_in "Last name", with: "El Famoso"
     fill_in "First name", with: "Armando"
