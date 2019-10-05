@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      account:
+        delete_reason: Delete reason
       config:
         available_methods: Available methods
       id: Id
@@ -22,6 +24,18 @@ en:
         user: Participant
         verification_attachment: Scanned copy of your document
   decidim:
+    account:
+      delete:
+        alert: Alert
+        confirm:
+          close: Close
+          ok: Ok
+          question: Question
+          title: Title
+        explanation: Explanation
+      show:
+        change_password: Change password
+        update_account: Update account
     admin:
       officializations:
         index:
@@ -61,6 +75,36 @@ en:
       unique_identity:
         name: UniqueIdentity
     contact: Contact
+    devise:
+      registrations:
+        edit:
+          already_have_an_account?: Already have an account?
+          newsletter: Newsletter
+          newsletter_title: Newsletter title
+          nickname_help: Nickname help
+          password_help: Password help
+          phone_help: Phone help
+          sign_in: Sign in
+          sign_up: Sign up
+          subtitle: Subtitle
+          terms: Terms
+          tos_agreement: Tos agreement
+          tos_title: Tos title
+          username_help: Username help
+        new:
+          already_have_an_account?: Already have an account?
+          newsletter: Newsletter
+          newsletter_title: Newsletter title
+          nickname_help: Nickname help
+          password_help: Password help
+          phone_help: Phone help
+          sign_in: Sign in
+          sign_up: Sign up
+          subtitle: Subtitle
+          terms: Terms
+          tos_agreement: Tos agreement
+          tos_title: Tos title
+          username_help: Username help
     unique_identity:
       admin:
         config:
@@ -148,9 +192,18 @@ en:
           internet_bill: Internet bill
           nie: NIE
           passport: Passport
+  devise:
+    passwords:
+      edit:
+        password_help: Password help
+    registrations:
+      new:
+        sign_up: Sign up
   errors:
     messages:
       date_format: 'must be on date format: dd/mm/yyyy'
+      only_ten_digits_and_starts_by_zero: Must contains only ten digits and starts
+        by zero
       uppercase_only_letters_numbers: must be all uppercase and contain only letters
         and/or numbers
   placeholder:
