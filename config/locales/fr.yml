@@ -37,7 +37,7 @@ fr:
           not_officialized: Non officialisé
           officialize: Officialiser
           officialized: Officialisé
-          reofficialize: Ré-officialisé
+          reofficialize: Réofficialiser
           search: Chercher
           status: Statut
           unique_id: Identifiant unique
@@ -62,15 +62,15 @@ fr:
     events:
       unique_identity:
         authorization_accepted:
-          email_intro: Your authorization application has been accepted on <a href='%{resource_url}'>%{participatory_space_title}</a>.
-          email_outro: Thank you for your participation.
-          email_subject: Your authorization application has been accepted on %{participatory_space_title}
-          notification_title: Your authorization application has been accepted on <a href='%{resource_url}'>%{participatory_space_title}</a>.
+          email_intro: Votre demande d'autorisation a été validée sur <a href='%{resource_url}'>%{participatory_space_title}</a>.
+          email_outro: Merci de votre participation.
+          email_subject: Votre demande d'autorisation a été validée sur %{participatory_space_title}
+          notification_title: Votre demande d'autorisation a été validée sur <a href='%{resource_url}'>%{participatory_space_title}</a>.
         authorization_rejected:
-          email_intro: 'Your authorization application has been rejected on <a href=''%{resource_url}''>%{participatory_space_title}</a>. check that your documents meet the requirements and try again. If you need help, please contact us at the following address: <a heref="mailto:mail@example.org">mail@example.org</a>'
-          email_outro: Thank you for your participation.
-          email_subject: Your authorization application has been rejected on %{participatory_space_title}
-          notification_title: 'Your authorization application has been rejected on <a href=''%{resource_url}''>%{participatory_space_title}</a>. check that your documents meet the requirements and try again. If you need help, please contact us at the following address: <a heref="mailto:mail@example.org">mail@example.org</a>'
+          email_intro: 'Votre demande d''autorisation a été refusée sur <a href=''%{resource_url}''>%{participatory_space_title}</a>. Veuillez vérifier que vos documents respectent les spécifications demandées. Si vous avez besoin d''assistance, n''hésitez pas à nous contacter à l''adresse suivante : <a href="mailto:mail@example.org">mail@example.org</a>'
+          email_outro: Merci de votre participation.
+          email_subject: Votre demande d'autorisation a été refusée sur %{participatory_space_title}
+          notification_title: 'Votre demande d''autorisation a été refusée sur <a href=''%{resource_url}''>%{participatory_space_title}</a>. Veuillez vérifier que vos documents respectent les spécifications demandées. Si vous avez besoin d''assistance, n''hésitez pas à nous contacter à l''adresse suivante : <a href="mailto:mail@example.org">mail@example.org</a>'
     unique_identity:
       admin:
         config:
@@ -145,8 +145,8 @@ fr:
             error: Un problème est survenu lors du chargement de votre document
             success: Document importé avec succès
         gender:
-          female: Female
-          male: Male
+          female: Féminin
+          male: Masculin
         type:
           dni: Carte nationale d'identité
           energy_bill: Facture de fournisseur d'énergie
