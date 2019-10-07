@@ -24,7 +24,7 @@ module Decidim
     validates :phone,
               format: { with: /\A[0]\d{9}\z/, message: I18n.t("errors.messages.only_ten_digits_and_starts_by_zero") },
               presence: true,
-              if: -> (form) { form.phone.present? }
+              if: ->(form) { form.phone.present? }
 
     validates :nickname, length: { maximum: Decidim::User.nickname_max_length, allow_blank: true }
     validates :password, confirmation: true
@@ -52,8 +52,8 @@ module Decidim
 
     def unique_email
       return true if Decidim::User.where(
-          organization: context.current_organization,
-          email: email
+        organization: context.current_organization,
+        email: email
       ).where.not(id: context.current_user.id).empty?
 
       errors.add :email, :taken
@@ -62,8 +62,8 @@ module Decidim
 
     def unique_nickname
       return true if Decidim::User.where(
-          organization: context.current_organization,
-          nickname: nickname
+        organization: context.current_organization,
+        nickname: nickname
       ).where.not(id: context.current_user.id).empty?
 
       errors.add :nickname, :taken

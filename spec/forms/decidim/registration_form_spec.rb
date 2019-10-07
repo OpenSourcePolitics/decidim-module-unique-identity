@@ -6,9 +6,9 @@ module Decidim
   describe RegistrationForm do
     subject do
       described_class.from_params(
-          attributes
+        attributes
       ).with_context(
-          context
+        context
       )
     end
 
@@ -23,19 +23,19 @@ module Decidim
 
     let(:attributes) do
       {
-          name: name,
-          nickname: nickname,
-          email: email,
-          phone: phone,
-          password: password,
-          password_confirmation: password_confirmation,
-          tos_agreement: tos_agreement
+        name: name,
+        nickname: nickname,
+        email: email,
+        phone: phone,
+        password: password,
+        password_confirmation: password_confirmation,
+        tos_agreement: tos_agreement
       }
     end
 
     let(:context) do
       {
-          current_organization: organization
+        current_organization: organization
       }
     end
 
@@ -128,7 +128,7 @@ module Decidim
         it "is invalid" do
           expect(subject).not_to be_valid
           expect(subject.errors[:phone])
-              .to include("Must contains only ten digits and starts by zero")
+            .to include("Must contains only ten digits and starts by zero")
         end
       end
 
@@ -138,7 +138,7 @@ module Decidim
         it "is invalid" do
           expect(subject).not_to be_valid
           expect(subject.errors[:phone])
-              .to include("Must contains only ten digits and starts by zero")
+            .to include("Must contains only ten digits and starts by zero")
         end
       end
 
@@ -148,7 +148,7 @@ module Decidim
         it "is invalid" do
           expect(subject).not_to be_valid
           expect(subject.errors[:phone])
-              .to include("Must contains only ten digits and starts by zero")
+            .to include("Must contains only ten digits and starts by zero")
         end
       end
     end

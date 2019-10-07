@@ -6,19 +6,19 @@ module Decidim
   describe AccountForm do
     subject do
       described_class.new(
-          name: name,
-          email: email,
-          nickname: nickname,
-          password: password,
-          phone: phone,
-          password_confirmation: password_confirmation,
-          avatar: avatar,
-          remove_avatar: remove_avatar,
-          personal_url: personal_url,
-          about: about
+        name: name,
+        email: email,
+        nickname: nickname,
+        password: password,
+        phone: phone,
+        password_confirmation: password_confirmation,
+        avatar: avatar,
+        remove_avatar: remove_avatar,
+        personal_url: personal_url,
+        about: about
       ).with_context(
-          current_organization: organization,
-          current_user: user
+        current_organization: organization,
+        current_user: user
       )
     end
 
@@ -123,7 +123,7 @@ module Decidim
         it "is invalid" do
           expect(subject).not_to be_valid
           expect(subject.errors[:phone])
-              .to include("Must contains only ten digits and starts by zero")
+            .to include("Must contains only ten digits and starts by zero")
         end
       end
 
@@ -133,7 +133,7 @@ module Decidim
         it "is invalid" do
           expect(subject).not_to be_valid
           expect(subject.errors[:phone])
-              .to include("Must contains only ten digits and starts by zero")
+            .to include("Must contains only ten digits and starts by zero")
         end
       end
 
@@ -143,11 +143,10 @@ module Decidim
         it "is invalid" do
           expect(subject).not_to be_valid
           expect(subject.errors[:phone])
-              .to include("Must contains only ten digits and starts by zero")
+            .to include("Must contains only ten digits and starts by zero")
         end
       end
     end
-
 
     describe "personal_url" do
       context "when it doesn't start with http" do
