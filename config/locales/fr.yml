@@ -1,6 +1,8 @@
 fr:
   activemodel:
     attributes:
+      account:
+        delete_reason: Delete reason
       config:
         available_methods: Méthodes disponibles
       id: Id
@@ -14,13 +16,24 @@ fr:
         first_name: Prénom
         last_name: Nom de famille
         residence_document_type: Indiquez le type de justificatif de domicile
-        user_agreement: J'accepte la charte de participation qui régit le tirage au sort
       unique_identity_upload:
         document_number: Numéro de document (avec lettre)
         document_type: Type de votre document
         user: Utilisateur
         verification_attachment: Copie scannée du document
   decidim:
+    account:
+      delete:
+        alert: Alert
+        confirm:
+          close: Close
+          ok: Yes, I want to delete my account
+          question: Question
+          title: Delete my account
+        explanation: Explanation
+      show:
+        change_password: Change password
+        update_account: Update account
     admin:
       officializations:
         index:
@@ -37,6 +50,7 @@ fr:
           not_officialized: Non officialisé
           officialize: Officialiser
           officialized: Officialisé
+          phone: Phone
           reofficialize: Réofficialiser
           search: Chercher
           status: Statut
@@ -59,6 +73,36 @@ fr:
       unique_identity:
         name: Identité unique
     contact: Contact
+    devise:
+      registrations:
+        edit:
+          already_have_an_account?: Already have an account?
+          newsletter: Newsletter
+          newsletter_title: Newsletter title
+          nickname_help: Nickname help
+          password_help: Password help
+          phone_help: Phone help
+          sign_in: Sign in
+          sign_up: Sign up
+          subtitle: Please fill in the following form in order to complete the sign up
+          terms: Terms
+          tos_agreement: Tos agreement
+          tos_title: Tos title
+          username_help: Username help
+        new:
+          already_have_an_account?: Already have an account?
+          newsletter: Newsletter
+          newsletter_title: Newsletter title
+          nickname_help: Nickname help
+          password_help: Password help
+          phone_help: Phone help
+          sign_in: Sign in
+          sign_up: Sign up
+          subtitle: Sign up to participate
+          terms: Terms
+          tos_agreement: Tos agreement
+          tos_title: Tos title
+          username_help: Username help
     events:
       unique_identity:
         authorization_accepted:
@@ -154,9 +198,17 @@ fr:
           internet_bill: Facture Internet
           nie: Carte de séjour ou de résident
           passport: Passeport
+  devise:
+    passwords:
+      edit:
+        password_help: Password help
+    registrations:
+      new:
+        sign_up: Sign up
   errors:
     messages:
       date_format: 'doit être au format de date : dd/mm/yyyy'
+      only_ten_digits_and_starts_by_zero: Must contains only ten digits and starts by zero
       uppercase_only_letters_numbers: doit être en majuscule et ne contenir que des lettres et/ou des chiffres
   placeholder:
     admin:
