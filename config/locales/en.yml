@@ -17,7 +17,6 @@ en:
         first_name: First name
         last_name: Last name
         residence_document_type: Residence document type
-        user_agreement: User agreement
       unique_identity_upload:
         document_number: Document number (with letter)
         document_type: Type of your document

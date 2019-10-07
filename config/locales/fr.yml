@@ -8,17 +8,42 @@ fr:
         birth_date: Date de naissance
         birth_place: Lieu de naissance
         city_resident: Résident à Paris
+        criminal_record: Je déclare ne pas avoir d'antécédents judiciaires
         document_number: Numéro de document (avec lettre)
         document_type: Type de document
         first_name: Prénom
         last_name: Nom de famille
         residence_document_type: Indiquez le type de justificatif de domicile
+        user_agreement: J'accepte la charte de participation qui régit le tirage au sort
       unique_identity_upload:
         document_number: Numéro de document (avec lettre)
         document_type: Type de votre document
         user: Utilisateur
         verification_attachment: Copie scannée du document
   decidim:
+    admin:
+      officializations:
+        index:
+          actions: Actions
+          badge: Badge
+          created_at: Créé le
+          filter:
+            all: Tout
+            not_officialized: Non officialisé
+            officialized: Officialisé
+          filter_by: Filtré par
+          name: Nom
+          nickname: Pseudonyme
+          not_officialized: Non officialisé
+          officialize: Officialiser
+          officialized: Officialisé
+          reofficialize: Réofficialiser
+          search: Chercher
+          status: Statut
+          unique_id: Identifiant unique
+          unofficialize: Déofficialiser
+      titles:
+        participants: Participants
     authorization_handlers:
       admin:
         unique_identity:
@@ -33,6 +58,19 @@ fr:
     components:
       unique_identity:
         name: Identité unique
+    contact: Contact
+    events:
+      unique_identity:
+        authorization_accepted:
+          email_intro: Votre demande d'autorisation a été validée sur <a href='%{resource_url}'>%{participatory_space_title}</a>.
+          email_outro: Merci de votre participation.
+          email_subject: Votre demande d'autorisation a été validée sur %{participatory_space_title}
+          notification_title: Votre demande d'autorisation a été validée sur <a href='%{resource_url}'>%{participatory_space_title}</a>.
+        authorization_rejected:
+          email_intro: 'Votre demande d''autorisation a été refusée sur <a href=''%{resource_url}''>%{participatory_space_title}</a>. Veuillez vérifier que vos documents respectent les spécifications demandées. Si vous avez besoin d''assistance, n''hésitez pas à nous contacter à l''adresse suivante : <a href="mailto:mail@example.org">mail@example.org</a>'
+          email_outro: Merci de votre participation.
+          email_subject: Votre demande d'autorisation a été refusée sur %{participatory_space_title}
+          notification_title: 'Votre demande d''autorisation a été refusée sur <a href=''%{resource_url}''>%{participatory_space_title}</a>. Veuillez vérifier que vos documents respectent les spécifications demandées. Si vous avez besoin d''assistance, n''hésitez pas à nous contacter à l''adresse suivante : <a href="mailto:mail@example.org">mail@example.org</a>'
     unique_identity:
       admin:
         config:
@@ -106,6 +144,9 @@ fr:
           update:
             error: Un problème est survenu lors du chargement de votre document
             success: Document importé avec succès
+        gender:
+          female: Féminin
+          male: Masculin
         type:
           dni: Carte nationale d'identité
           energy_bill: Facture de fournisseur d'énergie
