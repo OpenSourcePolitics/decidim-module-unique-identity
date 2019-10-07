@@ -29,9 +29,9 @@ en:
         alert: Alert
         confirm:
           close: Close
-          ok: Ok
+          ok: Yes, I want to delete my account
           question: Question
-          title: Title
+          title: Delete my account
         explanation: Explanation
       show:
         change_password: Change password
@@ -87,7 +87,8 @@ en:
           phone_help: Phone help
           sign_in: Sign in
           sign_up: Sign up
-          subtitle: Subtitle
+          subtitle: Please fill in the following form in order to complete the sign
+            up
           terms: Terms
           tos_agreement: Tos agreement
           tos_title: Tos title
@@ -101,7 +102,7 @@ en:
           phone_help: Phone help
           sign_in: Sign in
           sign_up: Sign up
-          subtitle: Subtitle
+          subtitle: Sign up to participate
           terms: Terms
           tos_agreement: Tos agreement
           tos_title: Tos title
