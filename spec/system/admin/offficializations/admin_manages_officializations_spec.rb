@@ -68,10 +68,10 @@ describe "Admin manages officializations", type: :system do
 
       it "officializes it with a custom badge" do
         fill_in_i18n(
-          :officialization_officialized_as,
-          "#officialization-officialized_as-tabs",
-          en: "Major of Barcelona",
-          es: "Alcaldesa de Barcelona"
+            :officialization_officialized_as,
+            "#officialization-officialized_as-tabs",
+            en: "Major of Barcelona",
+            es: "Alcaldesa de Barcelona"
         )
 
         click_button "Officialize"
@@ -87,10 +87,10 @@ describe "Admin manages officializations", type: :system do
     context "when officialized already" do
       let!(:user) do
         create(
-          :user,
-          :officialized,
-          officialized_as: { "en" => "Mayor of Barcelona" },
-          organization: organization
+            :user,
+            :officialized,
+            officialized_as: { "en" => "Mayor of Barcelona" },
+            organization: organization
         )
       end
 
@@ -108,9 +108,9 @@ describe "Admin manages officializations", type: :system do
         expect(page).to have_field("officialization_officialized_as_en", with: "Mayor of Barcelona")
 
         fill_in_i18n(
-          :officialization_officialized_as,
-          "#officialization-officialized_as-tabs",
-          en: "Major of Barcelona"
+            :officialization_officialized_as,
+            "#officialization-officialized_as-tabs",
+            en: "Major of Barcelona"
         )
         click_button "Officialize"
 
@@ -202,6 +202,22 @@ describe "Admin manages officializations", type: :system do
     end
   end
 
+  describe "displays phone" do
+    let!(:user) { create(:user, organization: organization) }
+
+    before do
+      within ".secondary-nav" do
+        click_link "Participants"
+      end
+    end
+
+    it "redirect to conversation path" do
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        expect(page).to have_content user(user.phone)
+      end
+    end
+  end
+
   describe "listing unique ids" do
     let!(:organization) do
       create(:organization, available_authorizations: ["unique_identity"])
@@ -210,11 +226,11 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization: organization) }
     let!(:authorization) do
       create(
-        :authorization,
-        :granted,
-        id: 1,
-        name: "unique_identity",
-        user: auth_user
+          :authorization,
+          :granted,
+          id: 1,
+          name: "unique_identity",
+          user: auth_user
       )
     end
 
@@ -244,11 +260,11 @@ describe "Admin manages officializations", type: :system do
     context "when user has a pending authorization" do
       let!(:authorization) do
         create(
-          :authorization,
-          :pending,
-          id: 1,
-          name: "unique_identity",
-          user: auth_user
+            :authorization,
+            :pending,
+            id: 1,
+            name: "unique_identity",
+            user: auth_user
         )
       end
 
