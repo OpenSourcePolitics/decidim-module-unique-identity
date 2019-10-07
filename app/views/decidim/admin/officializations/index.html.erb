@@ -48,6 +48,7 @@
           <th><%= t(".nickname") %></th>
           <th><%= t(".created_at") %></th>
           <th><%= t(".unique_id") %></th>
+          <th><%= t(".phone") %></th>
           <th><%= t(".status") %></th>
           <th><%= t(".badge") %></th>
           <th><%= t(".actions") %></th>
@@ -65,6 +66,7 @@
             <% end %>
             <td><%= l user.created_at, format: :short %></td>
             <td><%= unique_id(user) %></td>
+            <td><%= user.phone %></td>
             <td><%= user.officialized? ? t(".officialized") : t(".not_officialized") %></td>
             <td><%= translated_attribute(user.officialized_as) %></td>
 

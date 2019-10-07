@@ -76,6 +76,11 @@ describe "Identity document online review", type: :system do
 
     expect(page).to have_content("Participant successfully verified")
     expect(page).to have_no_content("Verification #")
+
+    relogin_as user, scope: :user
+    visit decidim.notifications_path
+
+    expect(page).to have_no_content("Your authorization application has been accepted")
   end
 
   it "shows an error when information doesn't match" do
@@ -114,6 +119,13 @@ describe "Identity document online review", type: :system do
         relogin_as user, scope: :user
         visit decidim_verifications.authorizations_path
         click_link "Unique identity"
+      end
+
+      it "displays a rejectance notification" do
+        relogin_as user, scope: :user
+        visit decidim.notifications_path
+
+        expect(page).to have_no_content("Your authorization application has been rejected")
       end
 
       it "allows the user to change the uploaded documents" do

@@ -202,6 +202,22 @@ describe "Admin manages officializations", type: :system do
     end
   end
 
+  describe "displays phone" do
+    let!(:user) { create(:user, organization: organization) }
+
+    before do
+      within ".secondary-nav" do
+        click_link "Participants"
+      end
+    end
+
+    it "redirect to conversation path" do
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        expect(page).to have_content(user.phone)
+      end
+    end
+  end
+
   describe "listing unique ids" do
     let!(:organization) do
       create(:organization, available_authorizations: ["unique_identity"])
