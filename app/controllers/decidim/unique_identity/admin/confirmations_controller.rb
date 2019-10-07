@@ -7,6 +7,7 @@ module Decidim
       # Handles confirmations for verification by identity document upload.
       #
       class ConfirmationsController < Decidim::Admin::ApplicationController
+        include UniqueIdentityComponents
         layout "decidim/admin/users"
 
         before_action :load_pending_authorization
@@ -24,6 +25,7 @@ module Decidim
 
           Decidim::Verifications::ConfirmUserAuthorization.call(@pending_authorization, @form) do
             on(:ok) do
+              notify_user
               flash[:notice] = t("confirmations.create.success", scope: "decidim.verifications.unique_identity.admin")
               redirect_to pending_authorizations_path
             end
@@ -39,6 +41,17 @@ module Decidim
 
         def load_pending_authorization
           @pending_authorization = Authorization.find(params[:pending_authorization_id])
+        end
+
+        def notify_user
+          unique_id_components.each do |component|
+            Decidim::EventsManager.publish(
+              event: "decidim.events.unique_identity.authorization_accepted",
+              event_class: Decidim::UniqueIdentity::AuthorizationAcceptionEvent,
+              resource: component,
+              affected_users: [user]
+            )
+          end
         end
       end
     end
