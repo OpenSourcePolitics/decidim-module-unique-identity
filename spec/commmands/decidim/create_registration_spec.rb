@@ -10,6 +10,7 @@ module Decidim
 
         let(:name) { "Username" }
         let(:nickname) { "nickname" }
+        let(:phone) { "0650065432" }
         let(:email) { "user@example.org" }
         let(:password) { "Y1fERVzL2F" }
         let(:password_confirmation) { password }
@@ -18,22 +19,23 @@ module Decidim
 
         let(:form_params) do
           {
-            "user" => {
-              "name" => name,
-              "nickname" => nickname,
-              "email" => email,
-              "password" => password,
-              "password_confirmation" => password_confirmation,
-              "tos_agreement" => tos_agreement,
-              "newsletter_at" => newsletter
-            }
+              "user" => {
+                  "name" => name,
+                  "nickname" => nickname,
+                  "phone" => phone,
+                  "email" => email,
+                  "password" => password,
+                  "password_confirmation" => password_confirmation,
+                  "tos_agreement" => tos_agreement,
+                  "newsletter_at" => newsletter
+              }
           }
         end
         let(:form) do
           RegistrationForm.from_params(
-            form_params
+              form_params
           ).with_context(
-            current_organization: organization
+              current_organization: organization
           )
         end
         let(:command) { described_class.new(form) }
@@ -61,16 +63,17 @@ module Decidim
 
           it "creates a new user" do
             expect(User).to receive(:create!).with(
-              name: form.name,
-              nickname: form.nickname,
-              email: form.email,
-              password: form.password,
-              password_confirmation: form.password_confirmation,
-              tos_agreement: form.tos_agreement,
-              newsletter_notifications_at: form.newsletter_at,
-              email_on_notification: true,
-              organization: organization,
-              accepted_tos_version: organization.tos_version
+                name: form.name,
+                nickname: form.nickname,
+                phone: form.phone,
+                email: form.email,
+                password: form.password,
+                password_confirmation: form.password_confirmation,
+                tos_agreement: form.tos_agreement,
+                newsletter_notifications_at: form.newsletter_at,
+                email_on_notification: true,
+                organization: organization,
+                accepted_tos_version: organization.tos_version
             ).and_call_original
 
             expect { command.call }.to change(User, :count).by(1)
