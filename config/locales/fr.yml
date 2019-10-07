@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       account:
-        delete_reason: Delete reason
+        delete_reason: Raison de la suppression
       config:
         available_methods: Méthodes disponibles
       id: Id
@@ -24,16 +24,16 @@ fr:
   decidim:
     account:
       delete:
-        alert: Alert
+        alert: Alerte
         confirm:
-          close: Close
-          ok: Yes, I want to delete my account
-          question: Question
-          title: Delete my account
-        explanation: Explanation
+          close: Fermer
+          ok: Oui, je souhaite supprimer mon compte
+          question: Êtes-vous sûr de vouloir supprimer votre compte ?
+          title: Supprimer mon compte
+        explanation: Explication
       show:
-        change_password: Change password
-        update_account: Update account
+        change_password: Changer de mot de passe
+        update_account: Mettre à jour votre compte
     admin:
       officializations:
         index:
@@ -50,7 +50,7 @@ fr:
           not_officialized: Non officialisé
           officialize: Officialiser
           officialized: Officialisé
-          phone: Phone
+          phone: Téléphone
           reofficialize: Réofficialiser
           search: Chercher
           status: Statut
@@ -76,33 +76,33 @@ fr:
     devise:
       registrations:
         edit:
-          already_have_an_account?: Already have an account?
+          already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Newsletter
-          newsletter_title: Newsletter title
-          nickname_help: Nickname help
-          password_help: Password help
-          phone_help: Phone help
-          sign_in: Sign in
-          sign_up: Sign up
-          subtitle: Please fill in the following form in order to complete the sign up
-          terms: Terms
-          tos_agreement: Tos agreement
-          tos_title: Tos title
-          username_help: Username help
+          newsletter_title: Titre de la newsletter
+          nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
+          password_help: '"%{minimun_characters} caractères minimum, ne doit pas être trop commun (ex. 123456) et doit être différent de votre pseudonyme et de votre email."'
+          phone_help: Le numéro doit commencer par un 0 et contenir 10 chiffres.
+          sign_in: Se connecter
+          sign_up: S'inscrire
+          subtitle: Remplissez le formulaire suivant pour compléter l'inscription
+          terms: Conditions d'utilisation
+          tos_agreement: En vous inscrivant, vous acceptez %{link}
+          tos_title: Conditions d'utilisation
+          username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom
         new:
-          already_have_an_account?: Already have an account?
+          already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Newsletter
-          newsletter_title: Newsletter title
-          nickname_help: Nickname help
-          password_help: Password help
-          phone_help: Phone help
-          sign_in: Sign in
-          sign_up: Sign up
-          subtitle: Sign up to participate
-          terms: Terms
-          tos_agreement: Tos agreement
-          tos_title: Tos title
-          username_help: Username help
+          newsletter_title: Titre de la newsletter
+          nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
+          password_help: '"%{minimun_characters} caractères minimum, ne doit pas être trop commun (ex. 123456) et doit être différent de votre pseudonyme et de votre email."'
+          phone_help: Le numéro doit commencer par un 0 et contenir 10 chiffres.
+          sign_in: Se connecter
+          sign_up: S'inscrire
+          subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
+          terms: Conditions d'utilisation
+          tos_agreement: En vous inscrivant, vous acceptez %{link}
+          tos_title: Conditions d'utilisation
+          username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom
     events:
       unique_identity:
         authorization_accepted:
@@ -201,10 +201,10 @@ fr:
   devise:
     passwords:
       edit:
-        password_help: Password help
+        password_help: '"%{minimun_characters} caractères minimum, ne doit pas être trop commun (ex. 123456) et doit être différent de votre pseudonyme et de votre email."'
     registrations:
       new:
-        sign_up: Sign up
+        sign_up: S'inscrire
   errors:
     messages:
       date_format: 'doit être au format de date : dd/mm/yyyy'
