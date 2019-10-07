@@ -15,6 +15,9 @@ ignore_unused:
   - "decidim.authorization_handlers.admin.unique_identity.help"
   - "decidim.authorization_handlers.unique_identity.explanation"
   - "decidim.authorization_handlers.unique_identity.name"
+  - "decidim.account.*"
+  - "activemodel.attributes.account.*"
+  - "devise.passwords.*"
 
 ignore_missing:
   - decidim.participatory_processes.scopes.global
