@@ -208,7 +208,7 @@ fr:
   errors:
     messages:
       date_format: 'doit être au format de date : dd/mm/yyyy'
-      only_ten_digits_and_starts_by_zero: Must contains only ten digits and starts by zero
+      only_ten_digits_and_starts_by_zero: Doit contenir seulement dix chiffres et commencer par zéro
       uppercase_only_letters_numbers: doit être en majuscule et ne contenir que des lettres et/ou des chiffres
   placeholder:
     admin:
