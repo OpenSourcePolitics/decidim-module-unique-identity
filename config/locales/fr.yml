@@ -162,7 +162,7 @@ fr:
           personal_information: Informations personnelles
         new:
           send: Demande de vérification
-          title: Importez votre document d'identité
+          title: Vérifiez votre compte
     verifications:
       unique_identity:
         admin:
