@@ -20,7 +20,7 @@ fr:
         document_number: Numéro de document (avec lettre)
         document_type: Type de votre document
         user: Utilisateur
-        verification_attachment: Copie scannée du document
+        verification_attachment: Photo ou scan de vos justificatifs
   decidim:
     account:
       delete:
@@ -152,13 +152,13 @@ fr:
           rejection_notice: Il y a eu un problème avec votre vérification. Veuillez essayer à nouveau
           send: Renouveler la demande de vérification
         form:
-          document_scan: Scan de document
+          document_scan: Photo ou scan de vos justificatifs
           document_scan_help:
             description: Description
             explanation: Explication
             guidelines: Guide
-            title: Aide pour le scan de document
-          documents_information: Vos justificatifs
+            title: Aide à la présentation de vos pièces justificatives
+          documents_information: Vos types de justificatifs
           personal_information: Vos informations personnelles
         new:
           send: Demande de vérification
@@ -213,7 +213,7 @@ fr:
   placeholder:
     admin:
       birth_date: Date de naissance
-      birth_place: Lieu de naissance
+      birth_place: 'Ex : Paris 20ème'
       document_number: Numéro de document d'identité
       email: Email
       first_name: Prénom
