@@ -9,13 +9,13 @@ fr:
       unique_identity_information:
         birth_date: Date de naissance
         birth_place: Lieu de naissance
-        city_resident: Résident à Paris
+        city_resident: Je réside à Paris
         criminal_record: Je déclare ne pas avoir d'antécédents judiciaires
-        document_number: Numéro de document (avec lettre)
-        document_type: Type de document
+        document_number: Numéro du document d'identité (avec lettres)
+        document_type: Choisissez un type de document d'identité
         first_name: Prénom
         last_name: Nom de famille
-        residence_document_type: Indiquez le type de justificatif de domicile
+        residence_document_type: Choisissez un type de justificatif de domicile
       unique_identity_upload:
         document_number: Numéro de document (avec lettre)
         document_type: Type de votre document
@@ -158,8 +158,8 @@ fr:
             explanation: Explication
             guidelines: Guide
             title: Aide pour le scan de document
-          documents_information: Informations du document
-          personal_information: Informations personnelles
+          documents_information: Vos justificatifs
+          personal_information: Vos informations personnelles
         new:
           send: Demande de vérification
           title: Vérifiez votre compte
