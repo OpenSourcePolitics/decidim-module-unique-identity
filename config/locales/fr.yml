@@ -17,8 +17,8 @@ fr:
         last_name: Nom de famille
         residence_document_type: Choisissez un type de justificatif de domicile
       unique_identity_upload:
-        document_number: Numéro de document (avec lettre)
-        document_type: Type de votre document
+        document_number: Numéro du document d'identité (avec lettres)
+        document_type: Choisissez un type de document d'identité
         user: Utilisateur
         verification_attachment: Photo ou scan de vos justificatifs
   decidim:
