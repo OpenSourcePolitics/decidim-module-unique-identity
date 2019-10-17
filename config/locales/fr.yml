@@ -20,7 +20,7 @@ fr:
         document_number: Numéro du document d'identité (avec lettres)
         document_type: Choisissez un type de document d'identité
         user: Utilisateur
-        verification_attachment: Photo ou scan de vos justificatifs
+        verification_attachment: Photo ou scan de vos justificatifs (.png ou .jpg)
   decidim:
     account:
       delete:
