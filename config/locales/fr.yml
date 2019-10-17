@@ -219,7 +219,7 @@ fr:
       first_name: Prénom
       last_name: Nom de famille
     birth_date: Date de naissance
-    birth_place: Lieu de naissance
+    birth_place: 'Ex : Paris 20ème'
     document_number: Numéro de document d'identité
     first_name: Prénom
     last_name: Nom de famille
