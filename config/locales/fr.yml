@@ -152,7 +152,7 @@ fr:
           rejection_notice: Il y a eu un problème avec votre vérification. Veuillez essayer à nouveau
           send: Renouveler la demande de vérification
         form:
-          document_scan: Photo ou scan de vos justificatifs
+          document_scan: Vos pièces justificatives
           document_scan_help:
             description: Munissez-vous d'une facture de téléphone fixe, une facture internet ou une facture de fournisseur d'énergie et de votre pièce d'identité. Posez votre pièce d'identité sur votre justificatif de domicile sans cacher l'adresse et votre nom puis prenez votre photo et vice versa dans le cas d'un scan.
             explanation: Explication
