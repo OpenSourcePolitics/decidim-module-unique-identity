@@ -9,18 +9,18 @@ fr:
       unique_identity_information:
         birth_date: Date de naissance
         birth_place: Lieu de naissance
-        city_resident: Résident à Paris
+        city_resident: Je réside à Paris
         criminal_record: Je déclare ne pas avoir d'antécédents judiciaires
-        document_number: Numéro de document (avec lettre)
-        document_type: Type de document
+        document_number: Numéro du document d'identité (avec lettres)
+        document_type: Choisissez un type de document d'identité
         first_name: Prénom
         last_name: Nom de famille
-        residence_document_type: Indiquez le type de justificatif de domicile
+        residence_document_type: Choisissez un type de justificatif de domicile
       unique_identity_upload:
         document_number: Numéro de document (avec lettre)
         document_type: Type de votre document
         user: Utilisateur
-        verification_attachment: Copie scannée du document
+        verification_attachment: Photo ou scan de vos justificatifs
   decidim:
     account:
       delete:
@@ -152,17 +152,17 @@ fr:
           rejection_notice: Il y a eu un problème avec votre vérification. Veuillez essayer à nouveau
           send: Renouveler la demande de vérification
         form:
-          document_scan: Scan de document
+          document_scan: Photo ou scan de vos justificatifs
           document_scan_help:
-            description: Description
+            description: Munissez-vous d'une facture de téléphone fixe, une facture internet ou une facture de fournisseur d'énergie et de votre pièce d'identité. Posez votre pièce d'identité sur votre justificatif de domicile sans cacher l'adresse et votre nom puis prenez votre photo et vice versa dans le cas d'un scan.
             explanation: Explication
             guidelines: Guide
-            title: Aide pour le scan de document
-          documents_information: Informations du document
-          personal_information: Informations personnelles
+            title: Aide à la présentation de vos pièces justificatives
+          documents_information: Vos types de justificatifs
+          personal_information: Vos informations personnelles
         new:
           send: Demande de vérification
-          title: Importez votre document d'identité
+          title: Vérifiez votre compte
     verifications:
       unique_identity:
         admin:
@@ -213,7 +213,7 @@ fr:
   placeholder:
     admin:
       birth_date: Date de naissance
-      birth_place: Lieu de naissance
+      birth_place: 'Ex : Paris 20ème'
       document_number: Numéro de document d'identité
       email: Email
       first_name: Prénom
