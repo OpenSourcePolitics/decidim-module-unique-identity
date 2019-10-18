@@ -7,6 +7,7 @@ fr:
         available_methods: Méthodes disponibles
       id: Id
       unique_identity_information:
+        gender: Genre
         birth_date: Date de naissance
         birth_place: Lieu de naissance
         city_resident: Je réside à Paris
