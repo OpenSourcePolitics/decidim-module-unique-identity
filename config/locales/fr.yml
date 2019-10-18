@@ -11,6 +11,7 @@ fr:
         birth_date: Date de naissance
         birth_place: Lieu de naissance
         city_resident: Je réside à Paris
+        user_agreement: Contrat utilisateur
         criminal_record: Je déclare ne pas avoir d'antécédents judiciaires
         document_number: Numéro du document d'identité (avec lettres)
         document_type: Choisissez un type de document d'identité
