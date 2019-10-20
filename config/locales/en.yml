@@ -18,12 +18,13 @@ en:
         gender: Gender
         last_name: Last name
         residence_document_type: Residence document type
-        user_agreement: User agreement
       unique_identity_upload:
         document_number: Document number (with letter)
         document_type: Type of your document
         user: Participant
         verification_attachment: Scanned copy of your document
+      user:
+        phone: Phone
   decidim:
     account:
       delete:
