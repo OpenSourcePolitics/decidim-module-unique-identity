@@ -7,20 +7,23 @@ fr:
         available_methods: Méthodes disponibles
       id: Id
       unique_identity_information:
+        gender: Genre
         birth_date: Date de naissance
         birth_place: Lieu de naissance
         city_resident: Je réside à Paris
+        user_agreement: Contrat utilisateur
         criminal_record: Je déclare ne pas avoir d'antécédents judiciaires
         document_number: Numéro du document d'identité (avec lettres)
         document_type: Choisissez un type de document d'identité
         first_name: Prénom
+        gender: Gender
         last_name: Nom de famille
         residence_document_type: Choisissez un type de justificatif de domicile
-      unique_identity_upload:
-        document_number: Numéro de document (avec lettre)
-        document_type: Type de votre document
+        unique_identity_upload:
+        document_number: Numéro du document d'identité (avec lettres)
+        document_type: Choisissez un type de document d'identité
         user: Utilisateur
-        verification_attachment: Photo ou scan de vos justificatifs
+        verification_attachment: Photo ou scan de vos justificatifs (.png ou .jpg)
   decidim:
     account:
       delete:
@@ -152,7 +155,7 @@ fr:
           rejection_notice: Il y a eu un problème avec votre vérification. Veuillez essayer à nouveau
           send: Renouveler la demande de vérification
         form:
-          document_scan: Photo ou scan de vos justificatifs
+          document_scan: Vos pièces justificatives
           document_scan_help:
             description: Munissez-vous d'une facture de téléphone fixe, une facture internet ou une facture de fournisseur d'énergie et de votre pièce d'identité. Posez votre pièce d'identité sur votre justificatif de domicile sans cacher l'adresse et votre nom puis prenez votre photo et vice versa dans le cas d'un scan.
             explanation: Explication
@@ -219,7 +222,7 @@ fr:
       first_name: Prénom
       last_name: Nom de famille
     birth_date: Date de naissance
-    birth_place: Lieu de naissance
+    birth_place: 'Ex : Paris 20ème'
     document_number: Numéro de document d'identité
     first_name: Prénom
     last_name: Nom de famille
