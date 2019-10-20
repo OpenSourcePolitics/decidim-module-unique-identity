@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -22,10 +21,9 @@ fr:
         document_number: Numéro du document d'identité (avec lettres)
         document_type: Choisissez un type de document d'identité
         user: Utilisateur
-        user_agreement: Contrat utilisateur
         verification_attachment: Photo ou scan de vos justificatifs (.png ou .jpg)
       user:
-        phone: Téléphone
+        phone: Phone
   decidim:
     account:
       delete:
@@ -67,13 +65,10 @@ fr:
       admin:
         unique_identity:
           help:
-          - Les utilisateurs remplissent leurs informations d'identité et téléchargent
-            une copie de leur document.
-          - Vous remplissez les informations présentes dans l'image téléchargée.
-          - L'information doit correspondre à tout ce que l'utilisateur a rempli.
-          - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez
-            pas les vérifier, vous pouvez refuser la demande et l'utilisateur sera
-            en mesure de les corriger.
+            - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
+            - Vous remplissez les informations présentes dans l'image téléchargée.
+            - L'information doit correspondre à tout ce que l'utilisateur a rempli.
+            - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez refuser la demande et l'utilisateur sera en mesure de les corriger.
       unique_identity:
         explanation: explication
         name: Identité unique
@@ -87,13 +82,8 @@ fr:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Newsletter
           newsletter_title: Titre de la newsletter
-          nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}"
-            ; il permet aux autres utilisateurs de vous suivre, de vous contacter
-            ou de vous mentionner dans leurs commentaires. Il s’affichera précédé
-            d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
-          password_help: '"%{minimun_characters} caractères minimum, ne doit pas être
-            trop commun (ex. 123456) et doit être différent de votre pseudonyme et
-            de votre email."'
+          nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
+          password_help: '"%{minimun_characters} caractères minimum, ne doit pas être trop commun (ex. 123456) et doit être différent de votre pseudonyme et de votre email."'
           phone_help: Le numéro doit commencer par un 0 et contenir 10 chiffres.
           sign_in: Se connecter
           sign_up: S'inscrire
@@ -101,31 +91,21 @@ fr:
           terms: Conditions d'utilisation
           tos_agreement: En vous inscrivant, vous acceptez %{link}
           tos_title: Conditions d'utilisation
-          username_help: Le nom est public et apparaît dans votre profil et sur vos
-            messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe
-            quel nom
+          username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom
         new:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Newsletter
           newsletter_title: Titre de la newsletter
-          nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}"
-            ; il permet aux autres utilisateurs de vous suivre, de vous contacter
-            ou de vous mentionner dans leurs commentaires. Il s’affichera précédé
-            d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
-          password_help: '"%{minimun_characters} caractères minimum, ne doit pas être
-            trop commun (ex. 123456) et doit être différent de votre pseudonyme et
-            de votre email."'
+          nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
+          password_help: '"%{minimun_characters} caractères minimum, ne doit pas être trop commun (ex. 123456) et doit être différent de votre pseudonyme et de votre email."'
           phone_help: Le numéro doit commencer par un 0 et contenir 10 chiffres.
           sign_in: Se connecter
           sign_up: S'inscrire
-          subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer
-            votre soutien aux propositions de votre choix.
+          subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
           terms: Conditions d'utilisation
           tos_agreement: En vous inscrivant, vous acceptez %{link}
           tos_title: Conditions d'utilisation
-          username_help: Le nom est public et apparaît dans votre profil et sur vos
-            messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe
-            quel nom
+          username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom
     events:
       unique_identity:
         authorization_accepted:
@@ -134,17 +114,10 @@ fr:
           email_subject: Votre demande d'autorisation a été validée sur %{participatory_space_title}
           notification_title: Votre demande d'autorisation a été validée sur <a href='%{resource_url}'>%{participatory_space_title}</a>.
         authorization_rejected:
-          email_intro: 'Votre demande d''autorisation a été refusée sur <a href=''%{resource_url}''>%{participatory_space_title}</a>.
-            Veuillez vérifier que vos documents respectent les spécifications demandées.
-            Si vous avez besoin d''assistance, n''hésitez pas à nous contacter à l''adresse
-            suivante : <a href="mailto:mail@example.org">mail@example.org</a>'
+          email_intro: 'Votre demande d''autorisation a été refusée sur <a href=''%{resource_url}''>%{participatory_space_title}</a>. Veuillez vérifier que vos documents respectent les spécifications demandées. Si vous avez besoin d''assistance, n''hésitez pas à nous contacter à l''adresse suivante : <a href="mailto:mail@example.org">mail@example.org</a>'
           email_outro: Merci de votre participation.
           email_subject: Votre demande d'autorisation a été refusée sur %{participatory_space_title}
-          notification_title: 'Votre demande d''autorisation a été refusée sur <a
-            href=''%{resource_url}''>%{participatory_space_title}</a>. Veuillez vérifier
-            que vos documents respectent les spécifications demandées. Si vous avez
-            besoin d''assistance, n''hésitez pas à nous contacter à l''adresse suivante
-            : <a href="mailto:mail@example.org">mail@example.org</a>'
+          notification_title: 'Votre demande d''autorisation a été refusée sur <a href=''%{resource_url}''>%{participatory_space_title}</a>. Veuillez vérifier que vos documents respectent les spécifications demandées. Si vous avez besoin d''assistance, n''hésitez pas à nous contacter à l''adresse suivante : <a href="mailto:mail@example.org">mail@example.org</a>'
     unique_identity:
       admin:
         config:
@@ -159,8 +132,7 @@ fr:
         offline_confirmations:
           new:
             cancel: Annuler
-            introduce_user_data: Introduire le courrier électronique de l'utilisateur
-              et les données du document
+            introduce_user_data: Introduire le courrier électronique de l'utilisateur et les données du document
             verify: Vérifier
         pending_authorizations:
           index:
@@ -175,24 +147,17 @@ fr:
           online: En ligne
           title: Titre
         edit:
-          being_reviewed: Nous examinons vos documents et votre autorisation sera
-            bientôt validée
+          being_reviewed: Nous examinons vos documents et votre autorisation sera bientôt validée
           offline: Utiliser la vérification hors ligne
           online: Utiliser la vérification en ligne
-          rejection_clarity: Assurez-vous que les informations sont clairement visibles
-            dans l'image téléchargée
+          rejection_clarity: Assurez-vous que les informations sont clairement visibles dans l'image téléchargée
           rejection_correctness: Assurez-vous que les informations entrées sont correctes
-          rejection_notice: Il y a eu un problème avec votre vérification. Veuillez
-            essayer à nouveau
+          rejection_notice: Il y a eu un problème avec votre vérification. Veuillez essayer à nouveau
           send: Renouveler la demande de vérification
         form:
           document_scan: Vos pièces justificatives
           document_scan_help:
-            description: Munissez-vous d'une facture de téléphone fixe, une facture
-              internet ou une facture de fournisseur d'énergie et de votre pièce d'identité.
-              Posez votre pièce d'identité sur votre justificatif de domicile sans
-              cacher l'adresse et votre nom puis prenez votre photo et vice versa
-              dans le cas d'un scan.
+            description: Munissez-vous d'une facture de téléphone fixe, une facture internet ou une facture de fournisseur d'énergie et de votre pièce d'identité. Posez votre pièce d'identité sur votre justificatif de domicile sans cacher l'adresse et votre nom puis prenez votre photo et vice versa dans le cas d'un scan.
             explanation: Explication
             guidelines: Guide
             title: Aide à la présentation de vos pièces justificatives
@@ -218,8 +183,7 @@ fr:
               success: Utilisateur vérifié avec succès
           rejections:
             create:
-              success: Vérification rejetée. L'utilisateur sera invité à modifier
-                ses documents
+              success: Vérification rejetée. L'utilisateur sera invité à modifier ses documents
         authorizations:
           create:
             error: Un problème est survenu lors du chargement de votre document
@@ -240,19 +204,15 @@ fr:
   devise:
     passwords:
       edit:
-        password_help: '"%{minimun_characters} caractères minimum, ne doit pas être
-          trop commun (ex. 123456) et doit être différent de votre pseudonyme et de
-          votre email."'
+        password_help: '"%{minimun_characters} caractères minimum, ne doit pas être trop commun (ex. 123456) et doit être différent de votre pseudonyme et de votre email."'
     registrations:
       new:
         sign_up: S'inscrire
   errors:
     messages:
       date_format: 'doit être au format de date : dd/mm/yyyy'
-      only_ten_digits_and_starts_by_zero: Doit contenir seulement dix chiffres et
-        commencer par zéro
-      uppercase_only_letters_numbers: doit être en majuscule et ne contenir que des
-        lettres et/ou des chiffres
+      only_ten_digits_and_starts_by_zero: Doit contenir seulement dix chiffres et commencer par zéro
+      uppercase_only_letters_numbers: doit être en majuscule et ne contenir que des lettres et/ou des chiffres
   placeholder:
     admin:
       birth_date: Date de naissance
