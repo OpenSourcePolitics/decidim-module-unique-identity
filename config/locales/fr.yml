@@ -19,8 +19,7 @@ fr:
         gender: Gender
         last_name: Nom de famille
         residence_document_type: Choisissez un type de justificatif de domicile
-        user_agreement: User agreement
-      unique_identity_upload:
+        unique_identity_upload:
         document_number: Numéro du document d'identité (avec lettres)
         document_type: Choisissez un type de document d'identité
         user: Utilisateur

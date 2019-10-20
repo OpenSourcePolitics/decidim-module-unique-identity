@@ -27,6 +27,7 @@ module Decidim
 
       initializer "decidim_unique_identity.assets" do
         require "decidim/extends/controllers/officializations_controller_extend"
+        require "decidim/extends/controllers/confirmations_controller_extend"
       end
     end
   end
