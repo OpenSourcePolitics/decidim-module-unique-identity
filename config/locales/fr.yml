@@ -14,7 +14,7 @@ fr:
         document_number: Numéro du document d'identité (avec lettres)
         document_type: Choisissez un type de document d'identité
         first_name: Prénom
-        gender: Gender
+        gender: Genre
         last_name: Nom de famille
         residence_document_type: Choisissez un type de justificatif de domicile
       unique_identity_upload:
