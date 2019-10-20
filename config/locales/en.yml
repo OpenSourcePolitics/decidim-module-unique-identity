@@ -23,6 +23,8 @@ en:
         document_type: Type of your document
         user: Participant
         verification_attachment: Scanned copy of your document
+      user:
+        phone: Phone
   decidim:
     account:
       delete:
