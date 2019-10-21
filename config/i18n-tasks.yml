@@ -17,6 +17,7 @@ ignore_unused:
   - "decidim.authorization_handlers.unique_identity.name"
   - "decidim.account.*"
   - "activemodel.attributes.account.*"
+  - "activemodel.attributes.user.phone"
   - "devise.passwords.*"
 
 ignore_missing:
