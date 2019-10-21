@@ -212,7 +212,8 @@ describe "Authentication", type: :system do
 
       expect(page).to have_content("successfully confirmed")
       expect(last_user).to be_confirmed
-      expect(page).to have_content("Authorizations")
+      expect(page).to have_content("Upload your identity document")
+      expect(page).to have_current_path decidim_unique_identity.new_authorization_path(action: :new, using: :online)
     end
   end
 

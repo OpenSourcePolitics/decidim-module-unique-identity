@@ -11,7 +11,7 @@ module ConfirmationsControllerExtend
       sign_in(resource) unless user_signed_in? # In case you want to sign in the user
 
       if first_login_and_not_authorized?(resource)
-        decidim_verifications.authorizations_path
+        decidim_unique_identity.new_authorization_path(action: :new, using: :online)
       else
         super
       end
