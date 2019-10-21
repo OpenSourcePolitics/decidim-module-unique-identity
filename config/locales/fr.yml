@@ -18,12 +18,23 @@ fr:
         gender: Genre
         last_name: Nom de famille
         residence_document_type: Choisissez un type de justificatif de domicile
-        unique_identity_upload: 
+        unique_identity_upload: Unique identity upload
         user: Utilisateur
         user_agreement: Contrat utilisateur
         verification_attachment: Photo ou scan de vos justificatifs (.png ou .jpg)
+      unique_identity_upload:
+        document_number: Document number (with letter)
+        document_type: Type of your document
+        user: Participant
+        verification_attachment: Photo ou scan de vos justificatifs (.png ou .jpg)
       user:
         phone: Téléphone
+    errors:
+      models:
+        unique_identity_upload:
+          attributes:
+            verification_attachment:
+              allowed_file_content_types: Le fichier doit être au format .jpg ou .png
   decidim:
     account:
       delete:
