@@ -26,9 +26,15 @@ fr:
         document_number: Document number (with letter)
         document_type: Type of your document
         user: Participant
-        verification_attachment: Scanned copy of your document
+        verification_attachment: Photo ou scan de vos justificatifs (.png ou .jpg)
       user:
         phone: Téléphone
+    errors:
+      models:
+        unique_identity_upload:
+          attributes:
+            verification_attachment:
+              allowed_file_content_types: Le fichier doit être au format .jpg ou .png
   decidim:
     account:
       delete:

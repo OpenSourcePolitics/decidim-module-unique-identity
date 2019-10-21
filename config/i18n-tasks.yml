@@ -19,6 +19,7 @@ ignore_unused:
   - "activemodel.attributes.account.*"
   - "activemodel.attributes.user.phone"
   - "devise.passwords.*"
+  - "activemodel.errors.models.unique_identity_upload.attributes.verification_attachment.allowed_file_content_types"
 
 ignore_missing:
   - decidim.participatory_processes.scopes.global

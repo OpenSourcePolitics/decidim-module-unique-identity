@@ -29,6 +29,12 @@ en:
         verification_attachment: Scanned copy of your document
       user:
         phone: Phone
+    errors:
+      models:
+        unique_identity_upload:
+          attributes:
+            verification_attachment:
+              allowed_file_content_types: The file must be in.jpg or.png format
   decidim:
     account:
       delete:
