@@ -157,7 +157,7 @@ fr:
         form:
           document_scan: Vos pièces justificatives
           document_scan_help:
-            description: Munissez-vous d'une facture de téléphone fixe, une facture internet ou une facture de fournisseur d'énergie et de votre pièce d'identité. Posez votre pièce d'identité sur votre justificatif de domicile sans cacher l'adresse et votre nom puis prenez votre photo et vice versa dans le cas d'un scan.
+            description: Munissez-vous d'un justificatif de domicile, posez votre pièce d'identité dessus sans cacher l'adresse et votre nom puis prenez votre photo. Si vous faites un scan, positionnez votre carte d'identité en premier puis posez le justificatif par dessus.
             explanation: Explication
             guidelines: Guide
             title: Aide à la présentation de vos pièces justificatives
