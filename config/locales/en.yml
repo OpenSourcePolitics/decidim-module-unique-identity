@@ -18,6 +18,10 @@ en:
         gender: Gender
         last_name: Last name
         residence_document_type: Residence document type
+        unique_identity_upload: Unique identity upload
+        user: User
+        user_agreement: User agreement
+        verification_attachment: Photo or scan of your documents (.png or.jpg)
       unique_identity_upload:
         document_number: Document number (with letter)
         document_type: Type of your document
