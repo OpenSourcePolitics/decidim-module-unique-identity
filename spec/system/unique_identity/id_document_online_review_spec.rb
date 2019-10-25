@@ -44,35 +44,19 @@ describe "Identity document online review", type: :system do
   end
 
   it "displays user infos" do
-    expect(page).to have_field("Last name", with: "PETIT")
-    expect(page).to have_field("First name", with: "JEAN")
-    expect(page).to have_select("Gender", selected: "Male")
-    expect(page).to have_field("Birth place", with: "MARSEILLE")
-    expect(page).to have_field("Birth date", with: "02/08/1986")
-    expect(page).to have_select("Type of the document", selected: "DNI")
-    expect(page).to have_field("Document number (with letter)", with: "XXXXXXXX")
+    expect(page).to have_content("PETIT")
+    expect(page).to have_content("JEAN")
+    expect(page).to have_content("Male")
+    expect(page).to have_content("MARSEILLE")
+    expect(page).to have_content("02/08/1986")
+    expect(page).to have_content("DNI")
+    expect(page).to have_content("XXXXXXXX")
     expect(page).to have_select("Residence document type", selected: "Energy bill")
-    expect(page).to have_checked_field("City resident")
+    expect(page).to have_content("City resident")
   end
 
   it "allows the user to verify an identity document" do
-    fill_in "Last name", with: "Petit"
-    fill_in "First name", with: "Jean"
-    fill_in "Birth date", with: "02/08/1986"
-    fill_in "Birth place", with: "Marseille"
-    select_gender(gender: "Male")
-
-    check_boxes(
-      city_resident: true,
-      criminal_record: false,
-      user_agreement: false
-    )
-
-    submit_verification_form(
-      doc_type: "DNI",
-      doc_number: "XXXXXXXX",
-      residence_doc_type: "Energy bill"
-    )
+    click_button "Verify"
 
     expect(page).to have_content("Participant successfully verified")
     expect(page).to have_no_content("Verification #")
@@ -81,29 +65,6 @@ describe "Identity document online review", type: :system do
     visit decidim.notifications_path
 
     expect(page).to have_no_content("Your authorization application has been accepted")
-  end
-
-  it "shows an error when information doesn't match" do
-    fill_in "Last name", with: "El Famoso"
-    fill_in "First name", with: "Armando"
-    fill_in "Birth date", with: "15/12/1998"
-    fill_in "Birth place", with: "Paris"
-
-    check_boxes(
-      city_resident: true,
-      criminal_record: false,
-      user_agreement: false
-    )
-
-    select_gender(gender: "Male")
-    submit_verification_form(
-      doc_type: "Home insurance attestation",
-      doc_number: "XXXXXXXY",
-      residence_doc_type: "Energy bill"
-    )
-
-    expect(page).to have_content("Verification doesn't match")
-    expect(page).to have_content("INTRODUCE THE DATA IN THE PICTURE")
   end
 
   context "when rejected" do
@@ -158,23 +119,7 @@ describe "Identity document online review", type: :system do
         click_link "Verification #1"
 
         expect(page).to have_css("img[src*='dni.jpg']")
-        fill_in "Last name", with: "Petit"
-        fill_in "First name", with: "Jean"
-        fill_in "Birth date", with: "02/08/1986"
-        fill_in "Birth place", with: "Marseille"
-        select_gender(gender: "Male")
-
-        check_boxes(
-          city_resident: true,
-          criminal_record: false,
-          user_agreement: false
-        )
-
-        submit_verification_form(
-          doc_type: "DNI",
-          doc_number: "XXXXXXXY",
-          residence_doc_type: "Energy bill"
-        )
+        click_button "Verify"
         expect(page).to have_content("Participant successfully verified")
       end
 
@@ -196,14 +141,6 @@ describe "Identity document online review", type: :system do
     check "City resident" if city_resident
     check "Criminal record" if criminal_record
     check "User agreement" if user_agreement
-  end
-
-  def submit_verification_form(doc_type:, doc_number:, residence_doc_type:)
-    select doc_type, from: "Type of the document"
-    fill_in "Document number (with letter)", with: doc_number
-    select residence_doc_type, from: "Residence document type"
-
-    click_button "Verify"
   end
 
   def submit_reupload_form(doc_type:, doc_number:, residence_doc_type:, file_name:)

@@ -145,8 +145,19 @@ en:
             update: Update
         confirmations:
           new:
+            birth_date: Birth date
+            birth_place: Birth place
+            city_resident: City resident
+            document_number: Document number
+            document_type: Document type
+            'false': 'False'
+            first_name: First name
+            gender: Gender
             introduce_user_data: Introduce the data in the picture
+            last_name: Last name
             reject: Reject
+            residence_document_type: Residence document type
+            'true': 'True'
             verify: Verify
         offline_confirmations:
           new:
