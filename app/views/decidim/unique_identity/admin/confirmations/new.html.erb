@@ -5,7 +5,6 @@
     <div class="card-divider">
       <h2 class="card-title">
         <%= t(".introduce_user_data") %>
-        <%= link_to t(".reject"), pending_authorization_rejection_path(@pending_authorization), method: :post, class: "button alert tiny button--title destroy" %>
       </h2>
     </div>
 
@@ -15,15 +14,43 @@
       </div>
 
       <div class="row column">
-        <%= form.text_field :last_name, placeholder: t(:last_name, scope: "placeholder.admin") %>
-        <%= form.text_field :first_name, placeholder: t(:first_name, scope: "placeholder.admin") %>
-        <%= form.select :gender, @form.gender_types_for_select, prompt: true %>
-        <%= form.text_field :birth_place, placeholder: t(:birth_place, scope: "placeholder.admin") %>
-        <%= form.date_field :birth_date, placeholder: t(:birth_date, scope: "placeholder.admin") %>
-        <%= form.select :document_type, @form.document_types_for_select, prompt: true %>
-        <%= form.text_field :document_number, placeholder: t(:document_number, scope: "placeholder.admin") %>
-        <%= form.select :residence_document_type, @form.residence_document_types_for_select, prompt: true %>
-        <%= form.check_box :city_resident %>
+        <table>
+          <thead>
+          <tr>
+            <th><%= t(".last_name") %></th>
+            <th><%= t(".first_name") %></th>
+            <th><%= t(".gender") %></th>
+            <th><%= t(".birth_place") %></th>
+            <th><%= t(".birth_date") %></th>
+            <th><%= t(".document_type") %></th>
+            <th><%= t(".document_number") %></th>
+            <th><%= t(".residence_document_type") %></th>
+            <th><%= t(".city_resident") %></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><%= @form.last_name %></td>
+            <td><%= @form.first_name %></td>
+            <td><%= t(@form.gender.downcase, scope: "decidim.verifications.unique_identity.gender") %></td>
+            <td><%= @form.birth_place %></td>
+            <td><%= l(@form.birth_date, format: :standard) %></td>
+            <td><%= t(@form.document_type.downcase, scope: "decidim.verifications.unique_identity.type") %></td>
+            <td><%= @form.document_number %></td>
+            <td><%= t(@form.residence_document_type.downcase, scope: "decidim.verifications.unique_identity.type") %></td>
+            <td><%= @form.city_resident ? t(".true") : t(".false") %></td>
+          </tr>
+          </tbody>
+        </table>
+        <%= form.hidden_field :last_name %>
+        <%= form.hidden_field :first_name %>
+        <%= form.hidden_field :gender %>
+        <%= form.hidden_field :birth_place %>
+        <%= form.hidden_field :birth_date %>
+        <%= form.hidden_field :document_type %>
+        <%= form.hidden_field :document_number %>
+        <%= form.hidden_field :residence_document_type %>
+        <%= form.hidden_field :city_resident %>
         <%= form.hidden_field :verification_type, value: :online %>
       </div>
     </div>
@@ -31,5 +58,6 @@
 
   <div class="button--double form-general-submit">
     <%= form.submit t(".verify") %>
+    <%= link_to t(".reject"), pending_authorization_rejection_path(@pending_authorization), method: :post, class: "button alert button--title destroy" %>
   </div>
 <% end %>

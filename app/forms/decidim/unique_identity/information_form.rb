@@ -6,7 +6,7 @@ module Decidim
     class InformationForm < AuthorizationHandler
       mimic :unique_identity_information
 
-      DOCUMENT_TYPES = %w(DNI NIE passport).freeze
+      DOCUMENT_TYPES = %w(DNI home_insurance_attestation passport).freeze
       RESIDENCE_DOCUMENT_TYPES = %w(fix_phone_bill internet_bill energy_bill).freeze
       GENDER_TYPES = %w(male female).freeze
 
@@ -22,10 +22,11 @@ module Decidim
       attribute :city_resident, Boolean
       attribute :criminal_record, Boolean
       attribute :user_agreement, Boolean
+      attribute :not_a_member, Boolean
 
       validates :last_name, :first_name, :birth_date, :birth_place, presence: true
 
-      validates :city_resident, :criminal_record, :user_agreement, acceptance: true
+      validates :city_resident, :criminal_record, :user_agreement, :not_a_member, acceptance: true
 
       validate :birth_date_is_of_date_type
 

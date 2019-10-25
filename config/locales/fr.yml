@@ -17,13 +17,28 @@ fr:
         first_name: Prénom
         gender: Genre
         last_name: Nom de famille
+        not_a_member: Je ne suis pas adhérent à un parti ou mouvement politique
         residence_document_type: Choisissez un type de justificatif de domicile
-        unique_identity_upload: 
+        unique_identity_upload: Unique identity upload
         user: Utilisateur
         user_agreement: Contrat utilisateur
         verification_attachment: Photo ou scan de vos justificatifs (.png ou .jpg)
+      unique_identity_upload:
+        document_number: Document number (with letter)
+        document_type: Type of your document
+        user: Participant
+        verification_attachment: Photo ou scan de vos justificatifs (.png ou .jpg)
       user:
         phone: Téléphone
+    errors:
+      models:
+        unique_identity_upload:
+          attributes:
+            verification_attachment:
+              allowed_file_content_types: Le fichier doit être au format .jpg ou .png
+  date:
+    formats:
+      standard: "%d/%m/%Y"
   decidim:
     account:
       delete:
@@ -151,8 +166,19 @@ fr:
             update: Mettre à jour
         confirmations:
           new:
+            birth_date: Birth date
+            birth_place: Birth place
+            city_resident: City resident
+            document_number: Document number
+            document_type: Document type
+            'false': 'False'
+            first_name: First name
+            gender: Gender
             introduce_user_data: Introduire les données dans l'image
+            last_name: Last name
             reject: Rejeter
+            residence_document_type: Residence document type
+            'true': 'True'
             verify: Vérifier
         offline_confirmations:
           new:
@@ -232,8 +258,8 @@ fr:
           dni: Carte nationale d'identité
           energy_bill: Facture de fournisseur d'énergie
           fix_phone_bill: Facture de téléphone fixe
+          home_insurance_attestation: Attestation assurance habitation
           internet_bill: Facture Internet
-          nie: Carte de séjour ou de résident
           passport: Passeport
   devise:
     passwords:
