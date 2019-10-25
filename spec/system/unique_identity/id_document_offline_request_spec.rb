@@ -67,5 +67,6 @@ describe "Identity document offline request", type: :system do
     check "City resident" if city_resident
     check "Criminal record" if criminal_record
     check "User agreement" if user_agreement
+    check "I am not a member of a political party or movement" if not_a_member
   end
 end
