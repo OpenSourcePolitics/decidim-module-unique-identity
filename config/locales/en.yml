@@ -1,8 +1,5 @@
 ---
 en:
-  date:
-    formats:
-      standard: "%d/%m/%Y"
   activemodel:
     attributes:
       account:
@@ -38,6 +35,9 @@ en:
           attributes:
             verification_attachment:
               allowed_file_content_types: The file must be in.jpg or.png format
+  date:
+    formats:
+      standard: "%d/%m/%Y"
   decidim:
     account:
       delete:
