@@ -17,6 +17,7 @@ fr:
         first_name: Prénom
         gender: Genre
         last_name: Nom de famille
+        not_a_member: Je ne suis pas adhérent à un parti ou mouvement politique
         residence_document_type: Choisissez un type de justificatif de domicile
         unique_identity_upload: Unique identity upload
         user: Utilisateur

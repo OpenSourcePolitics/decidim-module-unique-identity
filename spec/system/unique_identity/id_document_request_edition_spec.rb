@@ -184,9 +184,10 @@ describe "Identity document request edition", type: :system do
     click_button "Request verification again"
   end
 
-  def check_boxes(city_resident:, criminal_record:, user_agreement:)
+  def check_boxes(city_resident:, criminal_record:, user_agreement:, not_a_member:)
     check "City resident" if city_resident
     check "Criminal record" if criminal_record
     check "User agreement" if user_agreement
+    check "I am not a member of a political party or movement" if not_a_member
   end
 end
