@@ -6,7 +6,7 @@ module Decidim
     class InformationForm < AuthorizationHandler
       mimic :unique_identity_information
 
-      DOCUMENT_TYPES = %w(DNI NIE passport).freeze
+      DOCUMENT_TYPES = %w(DNI home_insurance_attestation passport).freeze
       RESIDENCE_DOCUMENT_TYPES = %w(fix_phone_bill internet_bill energy_bill).freeze
       GENDER_TYPES = %w(male female).freeze
 

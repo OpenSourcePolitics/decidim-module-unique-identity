@@ -221,8 +221,8 @@ en:
           dni: DNI
           energy_bill: Energy bill
           fix_phone_bill: Fix phone bill
+          home_insurance_attestation: Home insurance attestation
           internet_bill: Internet bill
-          nie: NIE
           passport: Passport
   devise:
     passwords:

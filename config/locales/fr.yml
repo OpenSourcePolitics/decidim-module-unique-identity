@@ -243,8 +243,8 @@ fr:
           dni: Carte nationale d'identité
           energy_bill: Facture de fournisseur d'énergie
           fix_phone_bill: Facture de téléphone fixe
+          home_insurance_attestation: Attestation assurance habitation
           internet_bill: Facture Internet
-          nie: Carte de séjour ou de résident
           passport: Passeport
   devise:
     passwords:

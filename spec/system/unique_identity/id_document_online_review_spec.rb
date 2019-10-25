@@ -97,7 +97,7 @@ describe "Identity document online review", type: :system do
 
     select_gender(gender: "Male")
     submit_verification_form(
-      doc_type: "NIE",
+      doc_type: "Home insurance attestation",
       doc_number: "XXXXXXXY",
       residence_doc_type: "Energy bill"
     )
