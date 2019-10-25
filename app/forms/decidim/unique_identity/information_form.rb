@@ -22,6 +22,7 @@ module Decidim
       attribute :city_resident, Boolean
       attribute :criminal_record, Boolean
       attribute :user_agreement, Boolean
+      attribute :not_a_member, Boolean
 
       validates :last_name, :first_name, :birth_date, :birth_place, presence: true
 
