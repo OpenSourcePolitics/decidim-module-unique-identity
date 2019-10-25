@@ -35,6 +35,9 @@ fr:
           attributes:
             verification_attachment:
               allowed_file_content_types: Le fichier doit être au format .jpg ou .png
+  date:
+    formats:
+      standard: "%d/%m/%Y"
   decidim:
     account:
       delete:

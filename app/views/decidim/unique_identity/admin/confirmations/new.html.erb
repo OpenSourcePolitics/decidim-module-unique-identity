@@ -34,7 +34,7 @@
             <td><%= @form.first_name %></td>
             <td><%= t(@form.gender.downcase, scope: "decidim.verifications.unique_identity.gender") %></td>
             <td><%= @form.birth_place %></td>
-            <td><%= @form.birth_date %></td>
+            <td><%= l(@form.birth_date, format: :standard) %></td>
             <td><%= t(@form.document_type.downcase, scope: "decidim.verifications.unique_identity.type") %></td>
             <td><%= @form.document_number %></td>
             <td><%= t(@form.residence_document_type.downcase, scope: "decidim.verifications.unique_identity.type") %></td>

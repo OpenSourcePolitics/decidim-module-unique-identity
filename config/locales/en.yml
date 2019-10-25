@@ -1,5 +1,8 @@
 ---
 en:
+  date:
+    formats:
+      standard: "%d/%m/%Y"
   activemodel:
     attributes:
       account:
