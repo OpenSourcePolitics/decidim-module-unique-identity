@@ -36,7 +36,8 @@ describe "Identity document offline request", type: :system do
     check_boxes(
       city_resident: true,
       criminal_record: true,
-      user_agreement: true
+      user_agreement: true,
+      not_a_member: true
     )
 
     submit_upload_form(
@@ -62,7 +63,7 @@ describe "Identity document offline request", type: :system do
     click_button "Request verification"
   end
 
-  def check_boxes(city_resident:, criminal_record:, user_agreement:)
+  def check_boxes(city_resident:, criminal_record:, user_agreement:, not_a_member:)
     check "City resident" if city_resident
     check "Criminal record" if criminal_record
     check "User agreement" if user_agreement

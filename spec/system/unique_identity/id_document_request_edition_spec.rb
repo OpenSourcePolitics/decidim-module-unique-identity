@@ -48,7 +48,8 @@ describe "Identity document request edition", type: :system do
       check_boxes(
         city_resident: true,
         criminal_record: true,
-        user_agreement: true
+        user_agreement: true,
+        not_a_member: true
       )
 
       submit_upload_form(
@@ -84,7 +85,8 @@ describe "Identity document request edition", type: :system do
       check_boxes(
         city_resident: true,
         criminal_record: true,
-        user_agreement: true
+        user_agreement: true,
+        not_a_member: true
       )
 
       submit_upload_form(
@@ -121,7 +123,8 @@ describe "Identity document request edition", type: :system do
         check_boxes(
           city_resident: true,
           criminal_record: true,
-          user_agreement: true
+          user_agreement: true,
+          not_a_member: true
         )
 
         submit_upload_form(
@@ -151,7 +154,8 @@ describe "Identity document request edition", type: :system do
         check_boxes(
           city_resident: true,
           criminal_record: true,
-          user_agreement: true
+          user_agreement: true,
+          not_a_member: true
         )
 
         submit_upload_form(
