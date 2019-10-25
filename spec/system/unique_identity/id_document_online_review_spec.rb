@@ -51,7 +51,7 @@ describe "Identity document online review", type: :system do
     expect(page).to have_content("02/08/1986")
     expect(page).to have_content("DNI")
     expect(page).to have_content("XXXXXXXX")
-    expect(page).to have_select("Residence document type", selected: "Energy bill")
+    expect(page).to have_content("Energy bill")
     expect(page).to have_content("City resident")
   end
 
