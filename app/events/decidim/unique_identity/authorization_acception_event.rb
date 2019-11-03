@@ -12,7 +12,7 @@ module Decidim
       def resource_url
         return super unless resource.is_a?(Decidim::Component)
 
-        @resource_url ||= [main_component_url(resource), resource.manifest, "new"].join("/")
+        @resource_url ||= [main_component_url(resource), resource.manifest.name, "new"].join("/")
       end
     end
   end
