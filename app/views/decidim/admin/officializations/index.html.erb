@@ -46,6 +46,7 @@
         <tr>
           <th><%= t(".name") %></th>
           <th><%= t(".nickname") %></th>
+          <th><%= t(".mail") %></th>
           <th><%= t(".created_at") %></th>
           <th><%= t(".unique_id") %></th>
           <th><%= t(".phone") %></th>
@@ -64,6 +65,7 @@
               <td><%= user.name %></td>
               <td><%= user.nickname %></td>
             <% end %>
+            <td><%= user.email %></td>
             <td><%= l user.created_at, format: :short %></td>
             <td><%= unique_id(user) %></td>
             <td><%= user.phone %></td>
