@@ -146,6 +146,7 @@ fr:
             city_resident: City resident
             document_number: Document number
             document_type: Document type
+            email: Email
             'false': 'False'
             first_name: First name
             gender: Gender
