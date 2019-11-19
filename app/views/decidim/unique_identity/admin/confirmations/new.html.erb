@@ -19,6 +19,7 @@
           <tr>
             <th><%= t(".last_name") %></th>
             <th><%= t(".first_name") %></th>
+            <th><%= t(".email") %></th>
             <th><%= t(".gender") %></th>
             <th><%= t(".birth_place") %></th>
             <th><%= t(".birth_date") %></th>
@@ -32,6 +33,7 @@
           <tr>
             <td><%= @form.last_name %></td>
             <td><%= @form.first_name %></td>
+            <td><%= @form&.user.email %></td>
             <td><%= t(@form.gender.downcase, scope: "decidim.verifications.unique_identity.gender") %></td>
             <td><%= @form.birth_place %></td>
             <td><%= l(@form.birth_date, format: :standard) %></td>

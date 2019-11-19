@@ -46,6 +46,7 @@ describe "Identity document online review", type: :system do
   it "displays user infos" do
     expect(page).to have_content("PETIT")
     expect(page).to have_content("JEAN")
+    expect(page).to have_content(user.email)
     expect(page).to have_content("Male")
     expect(page).to have_content("MARSEILLE")
     expect(page).to have_content("02/08/1986")
