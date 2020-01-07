@@ -13,7 +13,7 @@ module ConfirmationsControllerExtend
       if first_login_and_not_authorized?(resource)
         decidim_unique_identity.new_authorization_path(action: :new, using: :online)
       else
-        super
+        new_session_path(resource_name)
       end
     end
 
